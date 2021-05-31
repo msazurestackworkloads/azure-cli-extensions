@@ -396,20 +396,19 @@ helps['dataprotection backup-instance azure-backup-recovery-point-based-restore-
     short-summary: "Triggers restore for a BackupInstance Command group swagger name=BackupInstances, Command swagger \
 name=TriggerRestore#AzureBackupRecoveryPointBasedRestoreRequest#ItemLevelRestoreTargetInfo."
     parameters:
-      - name: --item-level-restore-target-info-restore-criteria
+      - name: --restore-criteria
         short-summary: "Restore Criteria. Swagger name=restoreCriteria"
         long-summary: |
-            Usage: --item-level-restore-target-info-restore-criteria object-type=XX
+            Usage: --restore-criteria object-type=XX
 
             object-type: Required. Type of the specific object - used for deserializing
 
-            Multiple actions can be specified by using more than one --item-level-restore-target-info-restore-criteria \
-argument.
-      - name: --item-level-restore-target-info-datasource-info
+            Multiple actions can be specified by using more than one --restore-criteria argument.
+      - name: --datasource-info
         short-summary: "Information of target DS. Swagger name=datasourceInfo"
         long-summary: |
-            Usage: --item-level-restore-target-info-datasource-info datasource-type=XX object-type=XX resource-id=XX \
-resource-location=XX resource-name=XX resource-type=XX resource-uri=XX
+            Usage: --datasource-info datasource-type=XX object-type=XX resource-id=XX resource-location=XX \
+resource-name=XX resource-type=XX resource-uri=XX
 
             datasource-type: DatasourceType of the resource.
             object-type: Type of Datasource object, used to initialize the right inherited type
@@ -419,11 +418,11 @@ resources, this will be the ID created by backup service via Fabric/Vault.
             resource-name: Unique identifier of the resource in the context of parent.
             resource-type: Resource Type of Datasource.
             resource-uri: Uri of the resource.
-      - name: --item-level-restore-target-info-datasource-set-info
+      - name: --datasource-set-info
         short-summary: "Information of target DS Set. Swagger name=datasourceSetInfo"
         long-summary: |
-            Usage: --item-level-restore-target-info-datasource-set-info datasource-type=XX object-type=XX \
-resource-id=XX resource-location=XX resource-name=XX resource-type=XX resource-uri=XX
+            Usage: --datasource-set-info datasource-type=XX object-type=XX resource-id=XX resource-location=XX \
+resource-name=XX resource-type=XX resource-uri=XX
 
             datasource-type: DatasourceType of the resource.
             object-type: Type of Datasource object, used to initialize the right inherited type
@@ -456,11 +455,11 @@ helps['dataprotection backup-instance azure-backup-recovery-point-based-restore-
     short-summary: "Triggers restore for a BackupInstance Command group swagger name=BackupInstances, Command swagger \
 name=TriggerRestore#AzureBackupRecoveryPointBasedRestoreRequest#RestoreFilesTargetInfo."
     parameters:
-      - name: --restore-files-target-info-target-details
+      - name: --target-details
         short-summary: "Destination of RestoreAsFiles operation, when destination is not a datasource. Swagger \
 name=targetDetails"
         long-summary: |
-            Usage: --restore-files-target-info-target-details file-prefix=XX restore-target-location-type=XX url=XX
+            Usage: --target-details file-prefix=XX restore-target-location-type=XX url=XX
 
             file-prefix: Required. Restore operation may create multiple files inside location pointed by Url Below \
 will be the common prefix for all of them
@@ -490,11 +489,11 @@ helps['dataprotection backup-instance azure-backup-recovery-point-based-restore-
     short-summary: "Triggers restore for a BackupInstance Command group swagger name=BackupInstances, Command swagger \
 name=TriggerRestore#AzureBackupRecoveryPointBasedRestoreRequest#RestoreTargetInfo."
     parameters:
-      - name: --restore-target-info-datasource-info
+      - name: --datasource-info
         short-summary: "Information of target DS. Swagger name=datasourceInfo"
         long-summary: |
-            Usage: --restore-target-info-datasource-info datasource-type=XX object-type=XX resource-id=XX \
-resource-location=XX resource-name=XX resource-type=XX resource-uri=XX
+            Usage: --datasource-info datasource-type=XX object-type=XX resource-id=XX resource-location=XX \
+resource-name=XX resource-type=XX resource-uri=XX
 
             datasource-type: DatasourceType of the resource.
             object-type: Type of Datasource object, used to initialize the right inherited type
@@ -504,11 +503,11 @@ resources, this will be the ID created by backup service via Fabric/Vault.
             resource-name: Unique identifier of the resource in the context of parent.
             resource-type: Resource Type of Datasource.
             resource-uri: Uri of the resource.
-      - name: --restore-target-info-datasource-set-info
+      - name: --datasource-set-info
         short-summary: "Information of target DS Set. Swagger name=datasourceSetInfo"
         long-summary: |
-            Usage: --restore-target-info-datasource-set-info datasource-type=XX object-type=XX resource-id=XX \
-resource-location=XX resource-name=XX resource-type=XX resource-uri=XX
+            Usage: --datasource-set-info datasource-type=XX object-type=XX resource-id=XX resource-location=XX \
+resource-name=XX resource-type=XX resource-uri=XX
 
             datasource-type: DatasourceType of the resource.
             object-type: Type of Datasource object, used to initialize the right inherited type
@@ -547,20 +546,19 @@ helps['dataprotection backup-instance azure-backup-recovery-time-based-restore-r
     short-summary: "Triggers restore for a BackupInstance Command group swagger name=BackupInstances, Command swagger \
 name=TriggerRestore#AzureBackupRecoveryTimeBasedRestoreRequest#ItemLevelRestoreTargetInfo."
     parameters:
-      - name: --item-level-restore-target-info-restore-criteria
+      - name: --restore-criteria
         short-summary: "Restore Criteria. Swagger name=restoreCriteria"
         long-summary: |
-            Usage: --item-level-restore-target-info-restore-criteria object-type=XX
+            Usage: --restore-criteria object-type=XX
 
             object-type: Required. Type of the specific object - used for deserializing
 
-            Multiple actions can be specified by using more than one --item-level-restore-target-info-restore-criteria \
-argument.
-      - name: --item-level-restore-target-info-datasource-info
+            Multiple actions can be specified by using more than one --restore-criteria argument.
+      - name: --datasource-info
         short-summary: "Information of target DS. Swagger name=datasourceInfo"
         long-summary: |
-            Usage: --item-level-restore-target-info-datasource-info datasource-type=XX object-type=XX resource-id=XX \
-resource-location=XX resource-name=XX resource-type=XX resource-uri=XX
+            Usage: --datasource-info datasource-type=XX object-type=XX resource-id=XX resource-location=XX \
+resource-name=XX resource-type=XX resource-uri=XX
 
             datasource-type: DatasourceType of the resource.
             object-type: Type of Datasource object, used to initialize the right inherited type
@@ -570,11 +568,11 @@ resources, this will be the ID created by backup service via Fabric/Vault.
             resource-name: Unique identifier of the resource in the context of parent.
             resource-type: Resource Type of Datasource.
             resource-uri: Uri of the resource.
-      - name: --item-level-restore-target-info-datasource-set-info
+      - name: --datasource-set-info
         short-summary: "Information of target DS Set. Swagger name=datasourceSetInfo"
         long-summary: |
-            Usage: --item-level-restore-target-info-datasource-set-info datasource-type=XX object-type=XX \
-resource-id=XX resource-location=XX resource-name=XX resource-type=XX resource-uri=XX
+            Usage: --datasource-set-info datasource-type=XX object-type=XX resource-id=XX resource-location=XX \
+resource-name=XX resource-type=XX resource-uri=XX
 
             datasource-type: DatasourceType of the resource.
             object-type: Type of Datasource object, used to initialize the right inherited type
@@ -596,11 +594,11 @@ helps['dataprotection backup-instance azure-backup-recovery-time-based-restore-r
     short-summary: "Triggers restore for a BackupInstance Command group swagger name=BackupInstances, Command swagger \
 name=TriggerRestore#AzureBackupRecoveryTimeBasedRestoreRequest#RestoreFilesTargetInfo."
     parameters:
-      - name: --restore-files-target-info-target-details
+      - name: --target-details
         short-summary: "Destination of RestoreAsFiles operation, when destination is not a datasource. Swagger \
 name=targetDetails"
         long-summary: |
-            Usage: --restore-files-target-info-target-details file-prefix=XX restore-target-location-type=XX url=XX
+            Usage: --target-details file-prefix=XX restore-target-location-type=XX url=XX
 
             file-prefix: Required. Restore operation may create multiple files inside location pointed by Url Below \
 will be the common prefix for all of them
@@ -619,11 +617,11 @@ helps['dataprotection backup-instance azure-backup-recovery-time-based-restore-r
     short-summary: "Triggers restore for a BackupInstance Command group swagger name=BackupInstances, Command swagger \
 name=TriggerRestore#AzureBackupRecoveryTimeBasedRestoreRequest#RestoreTargetInfo."
     parameters:
-      - name: --restore-target-info-datasource-info
+      - name: --datasource-info
         short-summary: "Information of target DS. Swagger name=datasourceInfo"
         long-summary: |
-            Usage: --restore-target-info-datasource-info datasource-type=XX object-type=XX resource-id=XX \
-resource-location=XX resource-name=XX resource-type=XX resource-uri=XX
+            Usage: --datasource-info datasource-type=XX object-type=XX resource-id=XX resource-location=XX \
+resource-name=XX resource-type=XX resource-uri=XX
 
             datasource-type: DatasourceType of the resource.
             object-type: Type of Datasource object, used to initialize the right inherited type
@@ -633,11 +631,11 @@ resources, this will be the ID created by backup service via Fabric/Vault.
             resource-name: Unique identifier of the resource in the context of parent.
             resource-type: Resource Type of Datasource.
             resource-uri: Uri of the resource.
-      - name: --restore-target-info-datasource-set-info
+      - name: --datasource-set-info
         short-summary: "Information of target DS Set. Swagger name=datasourceSetInfo"
         long-summary: |
-            Usage: --restore-target-info-datasource-set-info datasource-type=XX object-type=XX resource-id=XX \
-resource-location=XX resource-name=XX resource-type=XX resource-uri=XX
+            Usage: --datasource-set-info datasource-type=XX object-type=XX resource-id=XX resource-location=XX \
+resource-name=XX resource-type=XX resource-uri=XX
 
             datasource-type: DatasourceType of the resource.
             object-type: Type of Datasource object, used to initialize the right inherited type
@@ -665,20 +663,19 @@ helps['dataprotection backup-instance azure-backup-restore-with-rehydration-requ
     short-summary: "Triggers restore for a BackupInstance Command group swagger name=BackupInstances, Command swagger \
 name=TriggerRestore#AzureBackupRestoreWithRehydrationRequest#ItemLevelRestoreTargetInfo."
     parameters:
-      - name: --item-level-restore-target-info-restore-criteria
+      - name: --restore-criteria
         short-summary: "Restore Criteria. Swagger name=restoreCriteria"
         long-summary: |
-            Usage: --item-level-restore-target-info-restore-criteria object-type=XX
+            Usage: --restore-criteria object-type=XX
 
             object-type: Required. Type of the specific object - used for deserializing
 
-            Multiple actions can be specified by using more than one --item-level-restore-target-info-restore-criteria \
-argument.
-      - name: --item-level-restore-target-info-datasource-info
+            Multiple actions can be specified by using more than one --restore-criteria argument.
+      - name: --datasource-info
         short-summary: "Information of target DS. Swagger name=datasourceInfo"
         long-summary: |
-            Usage: --item-level-restore-target-info-datasource-info datasource-type=XX object-type=XX resource-id=XX \
-resource-location=XX resource-name=XX resource-type=XX resource-uri=XX
+            Usage: --datasource-info datasource-type=XX object-type=XX resource-id=XX resource-location=XX \
+resource-name=XX resource-type=XX resource-uri=XX
 
             datasource-type: DatasourceType of the resource.
             object-type: Type of Datasource object, used to initialize the right inherited type
@@ -688,11 +685,11 @@ resources, this will be the ID created by backup service via Fabric/Vault.
             resource-name: Unique identifier of the resource in the context of parent.
             resource-type: Resource Type of Datasource.
             resource-uri: Uri of the resource.
-      - name: --item-level-restore-target-info-datasource-set-info
+      - name: --datasource-set-info
         short-summary: "Information of target DS Set. Swagger name=datasourceSetInfo"
         long-summary: |
-            Usage: --item-level-restore-target-info-datasource-set-info datasource-type=XX object-type=XX \
-resource-id=XX resource-location=XX resource-name=XX resource-type=XX resource-uri=XX
+            Usage: --datasource-set-info datasource-type=XX object-type=XX resource-id=XX resource-location=XX \
+resource-name=XX resource-type=XX resource-uri=XX
 
             datasource-type: DatasourceType of the resource.
             object-type: Type of Datasource object, used to initialize the right inherited type
@@ -721,11 +718,11 @@ helps['dataprotection backup-instance azure-backup-restore-with-rehydration-requ
     short-summary: "Triggers restore for a BackupInstance Command group swagger name=BackupInstances, Command swagger \
 name=TriggerRestore#AzureBackupRestoreWithRehydrationRequest#RestoreFilesTargetInfo."
     parameters:
-      - name: --restore-files-target-info-target-details
+      - name: --target-details
         short-summary: "Destination of RestoreAsFiles operation, when destination is not a datasource. Swagger \
 name=targetDetails"
         long-summary: |
-            Usage: --restore-files-target-info-target-details file-prefix=XX restore-target-location-type=XX url=XX
+            Usage: --target-details file-prefix=XX restore-target-location-type=XX url=XX
 
             file-prefix: Required. Restore operation may create multiple files inside location pointed by Url Below \
 will be the common prefix for all of them
@@ -751,11 +748,11 @@ helps['dataprotection backup-instance azure-backup-restore-with-rehydration-requ
     short-summary: "Triggers restore for a BackupInstance Command group swagger name=BackupInstances, Command swagger \
 name=TriggerRestore#AzureBackupRestoreWithRehydrationRequest#RestoreTargetInfo."
     parameters:
-      - name: --restore-target-info-datasource-info
+      - name: --datasource-info
         short-summary: "Information of target DS. Swagger name=datasourceInfo"
         long-summary: |
-            Usage: --restore-target-info-datasource-info datasource-type=XX object-type=XX resource-id=XX \
-resource-location=XX resource-name=XX resource-type=XX resource-uri=XX
+            Usage: --datasource-info datasource-type=XX object-type=XX resource-id=XX resource-location=XX \
+resource-name=XX resource-type=XX resource-uri=XX
 
             datasource-type: DatasourceType of the resource.
             object-type: Type of Datasource object, used to initialize the right inherited type
@@ -765,11 +762,11 @@ resources, this will be the ID created by backup service via Fabric/Vault.
             resource-name: Unique identifier of the resource in the context of parent.
             resource-type: Resource Type of Datasource.
             resource-uri: Uri of the resource.
-      - name: --restore-target-info-datasource-set-info
+      - name: --datasource-set-info
         short-summary: "Information of target DS Set. Swagger name=datasourceSetInfo"
         long-summary: |
-            Usage: --restore-target-info-datasource-set-info datasource-type=XX object-type=XX resource-id=XX \
-resource-location=XX resource-name=XX resource-type=XX resource-uri=XX
+            Usage: --datasource-set-info datasource-type=XX object-type=XX resource-id=XX resource-location=XX \
+resource-name=XX resource-type=XX resource-uri=XX
 
             datasource-type: DatasourceType of the resource.
             object-type: Type of Datasource object, used to initialize the right inherited type

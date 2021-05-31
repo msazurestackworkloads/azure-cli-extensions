@@ -24,8 +24,8 @@ from azext_dataprotection.action import (
     AddDataSourceInfo,
     AddDataSourceSetInfo,
     AddPolicyParameters,
-    AddItemLevelRestoreTargetInfoRestoreCriteria,
-    AddRestoreFilesTargetInfoTargetDetails
+    AddRestoreCriteria,
+    AddTargetDetails
 )
 
 
@@ -202,15 +202,13 @@ def load_arguments(self, _):
         c.argument('resource_group_name', resource_group_name_type)
         c.argument('backup_instance_name', options_list=['--name', '-n', '--backup-instance-name'], type=str,
                    help='The name of the backup instance. Swagger name=backupInstanceName', id_part='child_name_1')
-        c.argument('item_level_restore_target_info_restore_location', type=str, help='Target Restore region. Swagger '
-                   'name=restoreLocation')
-        c.argument('item_level_restore_target_info_restore_criteria',
-                   action=AddItemLevelRestoreTargetInfoRestoreCriteria, nargs='+', help='Restore Criteria. Swagger '
+        c.argument('restore_location', type=str, help='Target Restore region. Swagger name=restoreLocation')
+        c.argument('restore_criteria', action=AddRestoreCriteria, nargs='+', help='Restore Criteria. Swagger '
                    'name=restoreCriteria')
-        c.argument('item_level_restore_target_info_datasource_info', action=AddDataSourceInfo, nargs='+',
-                   help='Information of target DS. Swagger name=datasourceInfo')
-        c.argument('item_level_restore_target_info_datasource_set_info', action=AddDataSourceSetInfo, nargs='+',
-                   help='Information of target DS Set. Swagger name=datasourceSetInfo')
+        c.argument('datasource_info', action=AddDataSourceInfo, nargs='+', help='Information of target DS. Swagger '
+                   'name=datasourceInfo')
+        c.argument('datasource_set_info', action=AddDataSourceSetInfo, nargs='+', help='Information of target DS Set. '
+                   'Swagger name=datasourceSetInfo')
         c.argument('source_data_store_type', arg_type=get_enum_type(['ArchiveStore', 'SnapshotStore', 'VaultStore']),
                    help='Gets or sets the type of the source data store. Swagger name=sourceDataStoreType')
         c.argument('recovery_point_id', type=str, help='. Swagger name=recoveryPointId')
@@ -221,11 +219,9 @@ def load_arguments(self, _):
         c.argument('resource_group_name', resource_group_name_type)
         c.argument('backup_instance_name', options_list=['--name', '-n', '--backup-instance-name'], type=str,
                    help='The name of the backup instance. Swagger name=backupInstanceName', id_part='child_name_1')
-        c.argument('restore_files_target_info_restore_location', type=str, help='Target Restore region. Swagger '
-                   'name=restoreLocation')
-        c.argument('restore_files_target_info_target_details', action=AddRestoreFilesTargetInfoTargetDetails,
-                   nargs='+', help='Destination of RestoreAsFiles operation, when destination is not a datasource. '
-                   'Swagger name=targetDetails')
+        c.argument('restore_location', type=str, help='Target Restore region. Swagger name=restoreLocation')
+        c.argument('target_details', action=AddTargetDetails, nargs='+', help='Destination of RestoreAsFiles '
+                   'operation, when destination is not a datasource. Swagger name=targetDetails')
         c.argument('source_data_store_type', arg_type=get_enum_type(['ArchiveStore', 'SnapshotStore', 'VaultStore']),
                    help='Gets or sets the type of the source data store. Swagger name=sourceDataStoreType')
         c.argument('recovery_point_id', type=str, help='. Swagger name=recoveryPointId')
@@ -236,12 +232,11 @@ def load_arguments(self, _):
         c.argument('resource_group_name', resource_group_name_type)
         c.argument('backup_instance_name', options_list=['--name', '-n', '--backup-instance-name'], type=str,
                    help='The name of the backup instance. Swagger name=backupInstanceName', id_part='child_name_1')
-        c.argument('restore_target_info_restore_location', type=str, help='Target Restore region. Swagger '
-                   'name=restoreLocation')
-        c.argument('restore_target_info_datasource_info', action=AddDataSourceInfo, nargs='+', help='Information of '
-                   'target DS. Swagger name=datasourceInfo')
-        c.argument('restore_target_info_datasource_set_info', action=AddDataSourceSetInfo, nargs='+',
-                   help='Information of target DS Set. Swagger name=datasourceSetInfo')
+        c.argument('restore_location', type=str, help='Target Restore region. Swagger name=restoreLocation')
+        c.argument('datasource_info', action=AddDataSourceInfo, nargs='+', help='Information of target DS. Swagger '
+                   'name=datasourceInfo')
+        c.argument('datasource_set_info', action=AddDataSourceSetInfo, nargs='+', help='Information of target DS Set. '
+                   'Swagger name=datasourceSetInfo')
         c.argument('source_data_store_type', arg_type=get_enum_type(['ArchiveStore', 'SnapshotStore', 'VaultStore']),
                    help='Gets or sets the type of the source data store. Swagger name=sourceDataStoreType')
         c.argument('recovery_point_id', type=str, help='. Swagger name=recoveryPointId')
@@ -252,15 +247,13 @@ def load_arguments(self, _):
         c.argument('resource_group_name', resource_group_name_type)
         c.argument('backup_instance_name', options_list=['--name', '-n', '--backup-instance-name'], type=str,
                    help='The name of the backup instance. Swagger name=backupInstanceName', id_part='child_name_1')
-        c.argument('item_level_restore_target_info_restore_location', type=str, help='Target Restore region. Swagger '
-                   'name=restoreLocation')
-        c.argument('item_level_restore_target_info_restore_criteria',
-                   action=AddItemLevelRestoreTargetInfoRestoreCriteria, nargs='+', help='Restore Criteria. Swagger '
+        c.argument('restore_location', type=str, help='Target Restore region. Swagger name=restoreLocation')
+        c.argument('restore_criteria', action=AddRestoreCriteria, nargs='+', help='Restore Criteria. Swagger '
                    'name=restoreCriteria')
-        c.argument('item_level_restore_target_info_datasource_info', action=AddDataSourceInfo, nargs='+',
-                   help='Information of target DS. Swagger name=datasourceInfo')
-        c.argument('item_level_restore_target_info_datasource_set_info', action=AddDataSourceSetInfo, nargs='+',
-                   help='Information of target DS Set. Swagger name=datasourceSetInfo')
+        c.argument('datasource_info', action=AddDataSourceInfo, nargs='+', help='Information of target DS. Swagger '
+                   'name=datasourceInfo')
+        c.argument('datasource_set_info', action=AddDataSourceSetInfo, nargs='+', help='Information of target DS Set. '
+                   'Swagger name=datasourceSetInfo')
         c.argument('source_data_store_type', arg_type=get_enum_type(['ArchiveStore', 'SnapshotStore', 'VaultStore']),
                    help='Gets or sets the type of the source data store. Swagger name=sourceDataStoreType')
         c.argument('recovery_point_time', type=str, help='The recovery time in ISO 8601 format example - '
@@ -272,11 +265,9 @@ def load_arguments(self, _):
         c.argument('resource_group_name', resource_group_name_type)
         c.argument('backup_instance_name', options_list=['--name', '-n', '--backup-instance-name'], type=str,
                    help='The name of the backup instance. Swagger name=backupInstanceName', id_part='child_name_1')
-        c.argument('restore_files_target_info_restore_location', type=str, help='Target Restore region. Swagger '
-                   'name=restoreLocation')
-        c.argument('restore_files_target_info_target_details', action=AddRestoreFilesTargetInfoTargetDetails,
-                   nargs='+', help='Destination of RestoreAsFiles operation, when destination is not a datasource. '
-                   'Swagger name=targetDetails')
+        c.argument('restore_location', type=str, help='Target Restore region. Swagger name=restoreLocation')
+        c.argument('target_details', action=AddTargetDetails, nargs='+', help='Destination of RestoreAsFiles '
+                   'operation, when destination is not a datasource. Swagger name=targetDetails')
         c.argument('source_data_store_type', arg_type=get_enum_type(['ArchiveStore', 'SnapshotStore', 'VaultStore']),
                    help='Gets or sets the type of the source data store. Swagger name=sourceDataStoreType')
         c.argument('recovery_point_time', type=str, help='The recovery time in ISO 8601 format example - '
@@ -288,12 +279,11 @@ def load_arguments(self, _):
         c.argument('resource_group_name', resource_group_name_type)
         c.argument('backup_instance_name', options_list=['--name', '-n', '--backup-instance-name'], type=str,
                    help='The name of the backup instance. Swagger name=backupInstanceName', id_part='child_name_1')
-        c.argument('restore_target_info_restore_location', type=str, help='Target Restore region. Swagger '
-                   'name=restoreLocation')
-        c.argument('restore_target_info_datasource_info', action=AddDataSourceInfo, nargs='+', help='Information of '
-                   'target DS. Swagger name=datasourceInfo')
-        c.argument('restore_target_info_datasource_set_info', action=AddDataSourceSetInfo, nargs='+',
-                   help='Information of target DS Set. Swagger name=datasourceSetInfo')
+        c.argument('restore_location', type=str, help='Target Restore region. Swagger name=restoreLocation')
+        c.argument('datasource_info', action=AddDataSourceInfo, nargs='+', help='Information of target DS. Swagger '
+                   'name=datasourceInfo')
+        c.argument('datasource_set_info', action=AddDataSourceSetInfo, nargs='+', help='Information of target DS Set. '
+                   'Swagger name=datasourceSetInfo')
         c.argument('source_data_store_type', arg_type=get_enum_type(['ArchiveStore', 'SnapshotStore', 'VaultStore']),
                    help='Gets or sets the type of the source data store. Swagger name=sourceDataStoreType')
         c.argument('recovery_point_time', type=str, help='The recovery time in ISO 8601 format example - '
@@ -305,15 +295,13 @@ def load_arguments(self, _):
         c.argument('resource_group_name', resource_group_name_type)
         c.argument('backup_instance_name', options_list=['--name', '-n', '--backup-instance-name'], type=str,
                    help='The name of the backup instance. Swagger name=backupInstanceName', id_part='child_name_1')
-        c.argument('item_level_restore_target_info_restore_location', type=str, help='Target Restore region. Swagger '
-                   'name=restoreLocation')
-        c.argument('item_level_restore_target_info_restore_criteria',
-                   action=AddItemLevelRestoreTargetInfoRestoreCriteria, nargs='+', help='Restore Criteria. Swagger '
+        c.argument('restore_location', type=str, help='Target Restore region. Swagger name=restoreLocation')
+        c.argument('restore_criteria', action=AddRestoreCriteria, nargs='+', help='Restore Criteria. Swagger '
                    'name=restoreCriteria')
-        c.argument('item_level_restore_target_info_datasource_info', action=AddDataSourceInfo, nargs='+',
-                   help='Information of target DS. Swagger name=datasourceInfo')
-        c.argument('item_level_restore_target_info_datasource_set_info', action=AddDataSourceSetInfo, nargs='+',
-                   help='Information of target DS Set. Swagger name=datasourceSetInfo')
+        c.argument('datasource_info', action=AddDataSourceInfo, nargs='+', help='Information of target DS. Swagger '
+                   'name=datasourceInfo')
+        c.argument('datasource_set_info', action=AddDataSourceSetInfo, nargs='+', help='Information of target DS Set. '
+                   'Swagger name=datasourceSetInfo')
         c.argument('source_data_store_type', arg_type=get_enum_type(['ArchiveStore', 'SnapshotStore', 'VaultStore']),
                    help='Gets or sets the type of the source data store. Swagger name=sourceDataStoreType')
         c.argument('recovery_point_id', type=str, help='. Swagger name=recoveryPointId')
@@ -328,11 +316,9 @@ def load_arguments(self, _):
         c.argument('resource_group_name', resource_group_name_type)
         c.argument('backup_instance_name', options_list=['--name', '-n', '--backup-instance-name'], type=str,
                    help='The name of the backup instance. Swagger name=backupInstanceName', id_part='child_name_1')
-        c.argument('restore_files_target_info_restore_location', type=str, help='Target Restore region. Swagger '
-                   'name=restoreLocation')
-        c.argument('restore_files_target_info_target_details', action=AddRestoreFilesTargetInfoTargetDetails,
-                   nargs='+', help='Destination of RestoreAsFiles operation, when destination is not a datasource. '
-                   'Swagger name=targetDetails')
+        c.argument('restore_location', type=str, help='Target Restore region. Swagger name=restoreLocation')
+        c.argument('target_details', action=AddTargetDetails, nargs='+', help='Destination of RestoreAsFiles '
+                   'operation, when destination is not a datasource. Swagger name=targetDetails')
         c.argument('source_data_store_type', arg_type=get_enum_type(['ArchiveStore', 'SnapshotStore', 'VaultStore']),
                    help='Gets or sets the type of the source data store. Swagger name=sourceDataStoreType')
         c.argument('recovery_point_id', type=str, help='. Swagger name=recoveryPointId')
@@ -347,12 +333,11 @@ def load_arguments(self, _):
         c.argument('resource_group_name', resource_group_name_type)
         c.argument('backup_instance_name', options_list=['--name', '-n', '--backup-instance-name'], type=str,
                    help='The name of the backup instance. Swagger name=backupInstanceName', id_part='child_name_1')
-        c.argument('restore_target_info_restore_location', type=str, help='Target Restore region. Swagger '
-                   'name=restoreLocation')
-        c.argument('restore_target_info_datasource_info', action=AddDataSourceInfo, nargs='+', help='Information of '
-                   'target DS. Swagger name=datasourceInfo')
-        c.argument('restore_target_info_datasource_set_info', action=AddDataSourceSetInfo, nargs='+',
-                   help='Information of target DS Set. Swagger name=datasourceSetInfo')
+        c.argument('restore_location', type=str, help='Target Restore region. Swagger name=restoreLocation')
+        c.argument('datasource_info', action=AddDataSourceInfo, nargs='+', help='Information of target DS. Swagger '
+                   'name=datasourceInfo')
+        c.argument('datasource_set_info', action=AddDataSourceSetInfo, nargs='+', help='Information of target DS Set. '
+                   'Swagger name=datasourceSetInfo')
         c.argument('source_data_store_type', arg_type=get_enum_type(['ArchiveStore', 'SnapshotStore', 'VaultStore']),
                    help='Gets or sets the type of the source data store. Swagger name=sourceDataStoreType')
         c.argument('recovery_point_id', type=str, help='. Swagger name=recoveryPointId')

@@ -284,22 +284,22 @@ def dataprotection_backup_instance_azure_backup_recovery_point_based_restore_req
                                                                                                                                     vault_name,
                                                                                                                                     resource_group_name,
                                                                                                                                     backup_instance_name,
-                                                                                                                                    item_level_restore_target_info_restore_criteria,
-                                                                                                                                    item_level_restore_target_info_datasource_info,
+                                                                                                                                    restore_criteria,
+                                                                                                                                    datasource_info,
                                                                                                                                     source_data_store_type,
                                                                                                                                     recovery_point_id,
-                                                                                                                                    item_level_restore_target_info_restore_location=None,
-                                                                                                                                    item_level_restore_target_info_datasource_set_info=None,
+                                                                                                                                    restore_location=None,
+                                                                                                                                    datasource_set_info=None,
                                                                                                                                     no_wait=False):
     parameters = {}
     parameters['object_type'] = 'AzureBackupRecoveryPointBasedRestoreRequest'
     parameters['azure_backup_recovery_point_based_restore_request_restore_target_info'] = {}
     parameters['azure_backup_recovery_point_based_restore_request_restore_target_info']['object_type'] = 'ItemLevelRestoreTargetInfo'
     parameters['azure_backup_recovery_point_based_restore_request_restore_target_info']['recovery_option'] = "FailIfExists"
-    parameters['azure_backup_recovery_point_based_restore_request_restore_target_info']['restore_location'] = item_level_restore_target_info_restore_location
-    parameters['azure_backup_recovery_point_based_restore_request_restore_target_info']['restore_criteria'] = item_level_restore_target_info_restore_criteria
-    parameters['azure_backup_recovery_point_based_restore_request_restore_target_info']['datasource_info'] = item_level_restore_target_info_datasource_info
-    parameters['azure_backup_recovery_point_based_restore_request_restore_target_info']['datasource_set_info'] = item_level_restore_target_info_datasource_set_info
+    parameters['azure_backup_recovery_point_based_restore_request_restore_target_info']['restore_location'] = restore_location
+    parameters['azure_backup_recovery_point_based_restore_request_restore_target_info']['restore_criteria'] = restore_criteria
+    parameters['azure_backup_recovery_point_based_restore_request_restore_target_info']['datasource_info'] = datasource_info
+    parameters['azure_backup_recovery_point_based_restore_request_restore_target_info']['datasource_set_info'] = datasource_set_info
     parameters['recovery_point_id'] = recovery_point_id
     return sdk_no_wait(no_wait,
                        client.begin_trigger_restore,
@@ -313,18 +313,18 @@ def dataprotection_backup_instance_azure_backup_recovery_point_based_restore_req
                                                                                                                                vault_name,
                                                                                                                                resource_group_name,
                                                                                                                                backup_instance_name,
-                                                                                                                               restore_files_target_info_target_details,
+                                                                                                                               target_details,
                                                                                                                                source_data_store_type,
                                                                                                                                recovery_point_id,
-                                                                                                                               restore_files_target_info_restore_location=None,
+                                                                                                                               restore_location=None,
                                                                                                                                no_wait=False):
     parameters = {}
     parameters['object_type'] = 'AzureBackupRecoveryPointBasedRestoreRequest'
     parameters['azure_backup_recovery_point_based_restore_request_restore_target_info'] = {}
     parameters['azure_backup_recovery_point_based_restore_request_restore_target_info']['object_type'] = 'RestoreFilesTargetInfo'
     parameters['azure_backup_recovery_point_based_restore_request_restore_target_info']['recovery_option'] = "FailIfExists"
-    parameters['azure_backup_recovery_point_based_restore_request_restore_target_info']['restore_location'] = restore_files_target_info_restore_location
-    parameters['azure_backup_recovery_point_based_restore_request_restore_target_info']['target_details'] = restore_files_target_info_target_details
+    parameters['azure_backup_recovery_point_based_restore_request_restore_target_info']['restore_location'] = restore_location
+    parameters['azure_backup_recovery_point_based_restore_request_restore_target_info']['target_details'] = target_details
     parameters['recovery_point_id'] = recovery_point_id
     return sdk_no_wait(no_wait,
                        client.begin_trigger_restore,
@@ -338,20 +338,20 @@ def dataprotection_backup_instance_azure_backup_recovery_point_based_restore_req
                                                                                                                          vault_name,
                                                                                                                          resource_group_name,
                                                                                                                          backup_instance_name,
-                                                                                                                         restore_target_info_datasource_info,
+                                                                                                                         datasource_info,
                                                                                                                          source_data_store_type,
                                                                                                                          recovery_point_id,
-                                                                                                                         restore_target_info_restore_location=None,
-                                                                                                                         restore_target_info_datasource_set_info=None,
+                                                                                                                         restore_location=None,
+                                                                                                                         datasource_set_info=None,
                                                                                                                          no_wait=False):
     parameters = {}
     parameters['object_type'] = 'AzureBackupRecoveryPointBasedRestoreRequest'
     parameters['azure_backup_recovery_point_based_restore_request_restore_target_info'] = {}
     parameters['azure_backup_recovery_point_based_restore_request_restore_target_info']['object_type'] = 'RestoreTargetInfo'
     parameters['azure_backup_recovery_point_based_restore_request_restore_target_info']['recovery_option'] = "FailIfExists"
-    parameters['azure_backup_recovery_point_based_restore_request_restore_target_info']['restore_location'] = restore_target_info_restore_location
-    parameters['azure_backup_recovery_point_based_restore_request_restore_target_info']['datasource_info'] = restore_target_info_datasource_info
-    parameters['azure_backup_recovery_point_based_restore_request_restore_target_info']['datasource_set_info'] = restore_target_info_datasource_set_info
+    parameters['azure_backup_recovery_point_based_restore_request_restore_target_info']['restore_location'] = restore_location
+    parameters['azure_backup_recovery_point_based_restore_request_restore_target_info']['datasource_info'] = datasource_info
+    parameters['azure_backup_recovery_point_based_restore_request_restore_target_info']['datasource_set_info'] = datasource_set_info
     parameters['recovery_point_id'] = recovery_point_id
     return sdk_no_wait(no_wait,
                        client.begin_trigger_restore,
@@ -365,22 +365,22 @@ def dataprotection_backup_instance_azure_backup_recovery_time_based_restore_requ
                                                                                                                                    vault_name,
                                                                                                                                    resource_group_name,
                                                                                                                                    backup_instance_name,
-                                                                                                                                   item_level_restore_target_info_restore_criteria,
-                                                                                                                                   item_level_restore_target_info_datasource_info,
+                                                                                                                                   restore_criteria,
+                                                                                                                                   datasource_info,
                                                                                                                                    source_data_store_type,
                                                                                                                                    recovery_point_time,
-                                                                                                                                   item_level_restore_target_info_restore_location=None,
-                                                                                                                                   item_level_restore_target_info_datasource_set_info=None,
+                                                                                                                                   restore_location=None,
+                                                                                                                                   datasource_set_info=None,
                                                                                                                                    no_wait=False):
     parameters = {}
     parameters['object_type'] = 'AzureBackupRecoveryTimeBasedRestoreRequest'
     parameters['azure_backup_recovery_time_based_restore_request_restore_target_info'] = {}
     parameters['azure_backup_recovery_time_based_restore_request_restore_target_info']['object_type'] = 'ItemLevelRestoreTargetInfo'
     parameters['azure_backup_recovery_time_based_restore_request_restore_target_info']['recovery_option'] = "FailIfExists"
-    parameters['azure_backup_recovery_time_based_restore_request_restore_target_info']['restore_location'] = item_level_restore_target_info_restore_location
-    parameters['azure_backup_recovery_time_based_restore_request_restore_target_info']['restore_criteria'] = item_level_restore_target_info_restore_criteria
-    parameters['azure_backup_recovery_time_based_restore_request_restore_target_info']['datasource_info'] = item_level_restore_target_info_datasource_info
-    parameters['azure_backup_recovery_time_based_restore_request_restore_target_info']['datasource_set_info'] = item_level_restore_target_info_datasource_set_info
+    parameters['azure_backup_recovery_time_based_restore_request_restore_target_info']['restore_location'] = restore_location
+    parameters['azure_backup_recovery_time_based_restore_request_restore_target_info']['restore_criteria'] = restore_criteria
+    parameters['azure_backup_recovery_time_based_restore_request_restore_target_info']['datasource_info'] = datasource_info
+    parameters['azure_backup_recovery_time_based_restore_request_restore_target_info']['datasource_set_info'] = datasource_set_info
     parameters['recovery_point_time'] = recovery_point_time
     return sdk_no_wait(no_wait,
                        client.begin_trigger_restore,
@@ -394,18 +394,18 @@ def dataprotection_backup_instance_azure_backup_recovery_time_based_restore_requ
                                                                                                                               vault_name,
                                                                                                                               resource_group_name,
                                                                                                                               backup_instance_name,
-                                                                                                                              restore_files_target_info_target_details,
+                                                                                                                              target_details,
                                                                                                                               source_data_store_type,
                                                                                                                               recovery_point_time,
-                                                                                                                              restore_files_target_info_restore_location=None,
+                                                                                                                              restore_location=None,
                                                                                                                               no_wait=False):
     parameters = {}
     parameters['object_type'] = 'AzureBackupRecoveryTimeBasedRestoreRequest'
     parameters['azure_backup_recovery_time_based_restore_request_restore_target_info'] = {}
     parameters['azure_backup_recovery_time_based_restore_request_restore_target_info']['object_type'] = 'RestoreFilesTargetInfo'
     parameters['azure_backup_recovery_time_based_restore_request_restore_target_info']['recovery_option'] = "FailIfExists"
-    parameters['azure_backup_recovery_time_based_restore_request_restore_target_info']['restore_location'] = restore_files_target_info_restore_location
-    parameters['azure_backup_recovery_time_based_restore_request_restore_target_info']['target_details'] = restore_files_target_info_target_details
+    parameters['azure_backup_recovery_time_based_restore_request_restore_target_info']['restore_location'] = restore_location
+    parameters['azure_backup_recovery_time_based_restore_request_restore_target_info']['target_details'] = target_details
     parameters['recovery_point_time'] = recovery_point_time
     return sdk_no_wait(no_wait,
                        client.begin_trigger_restore,
@@ -419,20 +419,20 @@ def dataprotection_backup_instance_azure_backup_recovery_time_based_restore_requ
                                                                                                                         vault_name,
                                                                                                                         resource_group_name,
                                                                                                                         backup_instance_name,
-                                                                                                                        restore_target_info_datasource_info,
+                                                                                                                        datasource_info,
                                                                                                                         source_data_store_type,
                                                                                                                         recovery_point_time,
-                                                                                                                        restore_target_info_restore_location=None,
-                                                                                                                        restore_target_info_datasource_set_info=None,
+                                                                                                                        restore_location=None,
+                                                                                                                        datasource_set_info=None,
                                                                                                                         no_wait=False):
     parameters = {}
     parameters['object_type'] = 'AzureBackupRecoveryTimeBasedRestoreRequest'
     parameters['azure_backup_recovery_time_based_restore_request_restore_target_info'] = {}
     parameters['azure_backup_recovery_time_based_restore_request_restore_target_info']['object_type'] = 'RestoreTargetInfo'
     parameters['azure_backup_recovery_time_based_restore_request_restore_target_info']['recovery_option'] = "FailIfExists"
-    parameters['azure_backup_recovery_time_based_restore_request_restore_target_info']['restore_location'] = restore_target_info_restore_location
-    parameters['azure_backup_recovery_time_based_restore_request_restore_target_info']['datasource_info'] = restore_target_info_datasource_info
-    parameters['azure_backup_recovery_time_based_restore_request_restore_target_info']['datasource_set_info'] = restore_target_info_datasource_set_info
+    parameters['azure_backup_recovery_time_based_restore_request_restore_target_info']['restore_location'] = restore_location
+    parameters['azure_backup_recovery_time_based_restore_request_restore_target_info']['datasource_info'] = datasource_info
+    parameters['azure_backup_recovery_time_based_restore_request_restore_target_info']['datasource_set_info'] = datasource_set_info
     parameters['recovery_point_time'] = recovery_point_time
     return sdk_no_wait(no_wait,
                        client.begin_trigger_restore,
@@ -446,24 +446,24 @@ def dataprotection_backup_instance_azure_backup_restore_with_rehydration_request
                                                                                                                                 vault_name,
                                                                                                                                 resource_group_name,
                                                                                                                                 backup_instance_name,
-                                                                                                                                item_level_restore_target_info_restore_criteria,
-                                                                                                                                item_level_restore_target_info_datasource_info,
+                                                                                                                                restore_criteria,
+                                                                                                                                datasource_info,
                                                                                                                                 source_data_store_type,
                                                                                                                                 recovery_point_id,
                                                                                                                                 rehydration_priority,
                                                                                                                                 rehydration_retention_duration,
-                                                                                                                                item_level_restore_target_info_restore_location=None,
-                                                                                                                                item_level_restore_target_info_datasource_set_info=None,
+                                                                                                                                restore_location=None,
+                                                                                                                                datasource_set_info=None,
                                                                                                                                 no_wait=False):
     parameters = {}
     parameters['object_type'] = 'AzureBackupRestoreWithRehydrationRequest'
     parameters['azure_backup_restore_with_rehydration_request_restore_target_info'] = {}
     parameters['azure_backup_restore_with_rehydration_request_restore_target_info']['object_type'] = 'ItemLevelRestoreTargetInfo'
     parameters['azure_backup_restore_with_rehydration_request_restore_target_info']['recovery_option'] = "FailIfExists"
-    parameters['azure_backup_restore_with_rehydration_request_restore_target_info']['restore_location'] = item_level_restore_target_info_restore_location
-    parameters['azure_backup_restore_with_rehydration_request_restore_target_info']['restore_criteria'] = item_level_restore_target_info_restore_criteria
-    parameters['azure_backup_restore_with_rehydration_request_restore_target_info']['datasource_info'] = item_level_restore_target_info_datasource_info
-    parameters['azure_backup_restore_with_rehydration_request_restore_target_info']['datasource_set_info'] = item_level_restore_target_info_datasource_set_info
+    parameters['azure_backup_restore_with_rehydration_request_restore_target_info']['restore_location'] = restore_location
+    parameters['azure_backup_restore_with_rehydration_request_restore_target_info']['restore_criteria'] = restore_criteria
+    parameters['azure_backup_restore_with_rehydration_request_restore_target_info']['datasource_info'] = datasource_info
+    parameters['azure_backup_restore_with_rehydration_request_restore_target_info']['datasource_set_info'] = datasource_set_info
     parameters['recovery_point_id'] = recovery_point_id
     parameters['rehydration_priority'] = rehydration_priority
     parameters['rehydration_retention_duration'] = rehydration_retention_duration
@@ -479,20 +479,20 @@ def dataprotection_backup_instance_azure_backup_restore_with_rehydration_request
                                                                                                                            vault_name,
                                                                                                                            resource_group_name,
                                                                                                                            backup_instance_name,
-                                                                                                                           restore_files_target_info_target_details,
+                                                                                                                           target_details,
                                                                                                                            source_data_store_type,
                                                                                                                            recovery_point_id,
                                                                                                                            rehydration_priority,
                                                                                                                            rehydration_retention_duration,
-                                                                                                                           restore_files_target_info_restore_location=None,
+                                                                                                                           restore_location=None,
                                                                                                                            no_wait=False):
     parameters = {}
     parameters['object_type'] = 'AzureBackupRestoreWithRehydrationRequest'
     parameters['azure_backup_restore_with_rehydration_request_restore_target_info'] = {}
     parameters['azure_backup_restore_with_rehydration_request_restore_target_info']['object_type'] = 'RestoreFilesTargetInfo'
     parameters['azure_backup_restore_with_rehydration_request_restore_target_info']['recovery_option'] = "FailIfExists"
-    parameters['azure_backup_restore_with_rehydration_request_restore_target_info']['restore_location'] = restore_files_target_info_restore_location
-    parameters['azure_backup_restore_with_rehydration_request_restore_target_info']['target_details'] = restore_files_target_info_target_details
+    parameters['azure_backup_restore_with_rehydration_request_restore_target_info']['restore_location'] = restore_location
+    parameters['azure_backup_restore_with_rehydration_request_restore_target_info']['target_details'] = target_details
     parameters['recovery_point_id'] = recovery_point_id
     parameters['rehydration_priority'] = rehydration_priority
     parameters['rehydration_retention_duration'] = rehydration_retention_duration
@@ -508,22 +508,22 @@ def dataprotection_backup_instance_azure_backup_restore_with_rehydration_request
                                                                                                                      vault_name,
                                                                                                                      resource_group_name,
                                                                                                                      backup_instance_name,
-                                                                                                                     restore_target_info_datasource_info,
+                                                                                                                     datasource_info,
                                                                                                                      source_data_store_type,
                                                                                                                      recovery_point_id,
                                                                                                                      rehydration_priority,
                                                                                                                      rehydration_retention_duration,
-                                                                                                                     restore_target_info_restore_location=None,
-                                                                                                                     restore_target_info_datasource_set_info=None,
+                                                                                                                     restore_location=None,
+                                                                                                                     datasource_set_info=None,
                                                                                                                      no_wait=False):
     parameters = {}
     parameters['object_type'] = 'AzureBackupRestoreWithRehydrationRequest'
     parameters['azure_backup_restore_with_rehydration_request_restore_target_info'] = {}
     parameters['azure_backup_restore_with_rehydration_request_restore_target_info']['object_type'] = 'RestoreTargetInfo'
     parameters['azure_backup_restore_with_rehydration_request_restore_target_info']['recovery_option'] = "FailIfExists"
-    parameters['azure_backup_restore_with_rehydration_request_restore_target_info']['restore_location'] = restore_target_info_restore_location
-    parameters['azure_backup_restore_with_rehydration_request_restore_target_info']['datasource_info'] = restore_target_info_datasource_info
-    parameters['azure_backup_restore_with_rehydration_request_restore_target_info']['datasource_set_info'] = restore_target_info_datasource_set_info
+    parameters['azure_backup_restore_with_rehydration_request_restore_target_info']['restore_location'] = restore_location
+    parameters['azure_backup_restore_with_rehydration_request_restore_target_info']['datasource_info'] = datasource_info
+    parameters['azure_backup_restore_with_rehydration_request_restore_target_info']['datasource_set_info'] = datasource_set_info
     parameters['recovery_point_id'] = recovery_point_id
     parameters['rehydration_priority'] = rehydration_priority
     parameters['rehydration_retention_duration'] = rehydration_retention_duration

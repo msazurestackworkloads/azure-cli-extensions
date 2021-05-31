@@ -244,10 +244,10 @@ class AddPolicyParameters(argparse.Action):
         return d
 
 
-class AddItemLevelRestoreTargetInfoRestoreCriteria(argparse._AppendAction):
+class AddRestoreCriteria(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddItemLevelRestoreTargetInfoRestoreCriteria, self).__call__(parser, namespace, action, option_string)
+        super(AddRestoreCriteria, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):
         try:
@@ -270,17 +270,17 @@ class AddItemLevelRestoreTargetInfoRestoreCriteria(argparse._AppendAction):
 
             else:
                 raise CLIError(
-                    'Unsupported Key {} is provided for parameter item-level-restore-target-info-restore-criteria. All'
-                    ' possible keys are: object-type'.format(k)
+                    'Unsupported Key {} is provided for parameter restore-criteria. All possible keys are: object-type'
+                    .format(k)
                 )
 
         return d
 
 
-class AddRestoreFilesTargetInfoTargetDetails(argparse.Action):
+class AddTargetDetails(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.restore_files_target_info_target_details = action
+        namespace.target_details = action
 
     def get_action(self, values, option_string):
         try:
@@ -311,8 +311,8 @@ class AddRestoreFilesTargetInfoTargetDetails(argparse.Action):
 
             else:
                 raise CLIError(
-                    'Unsupported Key {} is provided for parameter restore-files-target-info-target-details. All'
-                    ' possible keys are: file-prefix, restore-target-location-type, url'.format(k)
+                    'Unsupported Key {} is provided for parameter target-details. All possible keys are: file-prefix,'
+                    ' restore-target-location-type, url'.format(k)
                 )
 
         return d
