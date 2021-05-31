@@ -20,12 +20,13 @@ helps['dataprotection'] = '''
 
 helps['dataprotection backup-vault'] = """
     type: group
-    short-summary: Manage backup vault with dataprotection
+    short-summary: Manage backup vault with dataprotection. Command group swagger name=BackupVaults
 """
 
 helps['dataprotection backup-vault show'] = """
     type: command
-    short-summary: "Returns a resource belonging to a resource group."
+    short-summary: "Returns a resource belonging to a resource group. Command group swagger name=BackupVaults, Command \
+swagger name=Get."
     examples:
       - name: Get BackupVault
         text: |-
@@ -39,10 +40,11 @@ helps['dataprotection backup-vault show'] = """
 
 helps['dataprotection backup-vault create'] = """
     type: command
-    short-summary: "Create a BackupVault resource belonging to a resource group."
+    short-summary: "Create a BackupVault resource belonging to a resource group. Command group swagger \
+name=BackupVaults, Command swagger name=CreateOrUpdate#Create."
     parameters:
       - name: --storage-settings
-        short-summary: "Storage Settings"
+        short-summary: "Storage Settings. Swagger name=storageSettings"
         long-summary: |
             Usage: --storage-settings datastore-type=XX type=XX
 
@@ -65,10 +67,11 @@ type="LocallyRedundant" datastore-type="VaultStore" --tags key1="val1" --resourc
 
 helps['dataprotection backup-vault update'] = """
     type: command
-    short-summary: "Update a BackupVault resource belonging to a resource group."
+    short-summary: "Update a BackupVault resource belonging to a resource group. Command group swagger \
+name=BackupVaults, Command swagger name=CreateOrUpdate#Update."
     parameters:
       - name: --storage-settings
-        short-summary: "Storage Settings"
+        short-summary: "Storage Settings. Swagger name=storageSettings"
         long-summary: |
             Usage: --storage-settings datastore-type=XX type=XX
 
@@ -80,7 +83,8 @@ helps['dataprotection backup-vault update'] = """
 
 helps['dataprotection backup-vault delete'] = """
     type: command
-    short-summary: "Deletes a BackupVault resource from the resource group."
+    short-summary: "Deletes a BackupVault resource from the resource group. Command group swagger name=BackupVaults, \
+Command swagger name=Delete."
     examples:
       - name: Delete BackupVault
         text: |-
@@ -91,7 +95,7 @@ helps['dataprotection backup-vault delete'] = """
 helps['dataprotection backup-vault patch'] = """
     type: command
     short-summary: "Updates a BackupVault resource belonging to a resource group. For example, updating tags for a \
-resource."
+resource. Command group swagger name=BackupVaults, Command swagger name=Patch."
     examples:
       - name: Patch BackupVault
         text: |-
@@ -101,7 +105,8 @@ resource."
 
 helps['dataprotection backup-vault show-resource-in-resource-group'] = """
     type: command
-    short-summary: "Returns resource collection belonging to a resource group."
+    short-summary: "Returns resource collection belonging to a resource group. Command group swagger \
+name=BackupVaults, Command swagger name=GetResourcesInResourceGroup."
     examples:
       - name: Get BackupVaults in ResourceGroup
         text: |-
@@ -110,7 +115,8 @@ helps['dataprotection backup-vault show-resource-in-resource-group'] = """
 
 helps['dataprotection backup-vault show-resource-in-subscription'] = """
     type: command
-    short-summary: "Returns resource collection belonging to a subscription."
+    short-summary: "Returns resource collection belonging to a subscription. Command group swagger name=BackupVaults, \
+Command swagger name=GetResourcesInSubscription."
     examples:
       - name: Get BackupVaults in Subscription
         text: |-
@@ -133,10 +139,11 @@ helps['dataprotection backup-vault wait'] = """
 
 helps['dataprotection check-feature-support'] = """
     type: command
-    short-summary: "Validates if a feature is supported."
+    short-summary: "Validates if a feature is supported Command group swagger name=, Command swagger \
+name=CheckFeatureSupport."
     parameters:
       - name: --feature-validation-request
-        short-summary: "Base class for feature object"
+        short-summary: "Base class for feature object. Swagger name=FeatureValidationRequest"
         long-summary: |
             Usage: --feature-validation-request feature-type=XX feature-name=XX object-type=XX
 
@@ -152,7 +159,7 @@ feature-type="DataSourceType"
 
 helps['dataprotection show-operation-result-patch'] = """
     type: command
-    short-summary: "."
+    short-summary: " Command group swagger name=, Command swagger name=GetOperationResultPatch."
     examples:
       - name: GetOperationResult Patch
         text: |-
@@ -163,7 +170,8 @@ lmZjgzOzdmYzBiMzhmLTc2NmItNDM5NS05OWQ1LTVmOGEzNzg4MWQzNA==" --resource-group "Sa
 
 helps['dataprotection show-operation-status'] = """
     type: command
-    short-summary: "Gets the operation status for a resource."
+    short-summary: "Gets the operation status for a resource. Command group swagger name=, Command swagger \
+name=GetOperationStatus."
     examples:
       - name: Get OperationStatus
         text: |-
@@ -173,12 +181,13 @@ OzdjNGE2ZWRjLWJjMmItNDRkYi1hYzMzLWY1YzEwNzk5Y2EyOA==" --location "WestUS"
 
 helps['dataprotection backup-policy'] = """
     type: group
-    short-summary: Manage backup policy with dataprotection
+    short-summary: Manage backup policy with dataprotection. Command group swagger name=BackupPolicies
 """
 
 helps['dataprotection backup-policy list'] = """
     type: command
-    short-summary: "Returns list of backup policies belonging to a backup vault."
+    short-summary: "Returns list of backup policies belonging to a backup vault Command group swagger \
+name=BackupPolicies, Command swagger name=List."
     examples:
       - name: List BackupPolicy
         text: |-
@@ -187,7 +196,8 @@ helps['dataprotection backup-policy list'] = """
 
 helps['dataprotection backup-policy show'] = """
     type: command
-    short-summary: "Gets a backup policy belonging to a backup vault."
+    short-summary: "Gets a backup policy belonging to a backup vault Command group swagger name=BackupPolicies, \
+Command swagger name=Get."
     examples:
       - name: Get BackupPolicy
         text: |-
@@ -197,7 +207,8 @@ helps['dataprotection backup-policy show'] = """
 
 helps['dataprotection backup-policy create'] = """
     type: command
-    short-summary: "Create a backup policy belonging to a backup vault."
+    short-summary: "Create a backup policy belonging to a backup vault Command group swagger name=BackupPolicies, \
+Command swagger name=CreateOrUpdate#Create."
     examples:
       - name: CreateOrUpdate BackupPolicy
         text: |-
@@ -207,12 +218,14 @@ helps['dataprotection backup-policy create'] = """
 
 helps['dataprotection backup-policy update'] = """
     type: command
-    short-summary: "Update a backup policy belonging to a backup vault."
+    short-summary: "Update a backup policy belonging to a backup vault Command group swagger name=BackupPolicies, \
+Command swagger name=CreateOrUpdate#Update."
 """
 
 helps['dataprotection backup-policy delete'] = """
     type: command
-    short-summary: "Deletes a backup policy belonging to a backup vault."
+    short-summary: "Deletes a backup policy belonging to a backup vault Command group swagger name=BackupPolicies, \
+Command swagger name=Delete."
     examples:
       - name: Delete BackupPolicy
         text: |-
@@ -222,12 +235,13 @@ helps['dataprotection backup-policy delete'] = """
 
 helps['dataprotection backup-instance'] = """
     type: group
-    short-summary: Manage backup instance with dataprotection
+    short-summary: Manage backup instance with dataprotection. Command group swagger name=BackupInstances
 """
 
 helps['dataprotection backup-instance list'] = """
     type: command
-    short-summary: "Gets a backup instances belonging to a backup vault."
+    short-summary: "Gets a backup instances belonging to a backup vault Command group swagger name=BackupInstances, \
+Command swagger name=List."
     examples:
       - name: List BackupInstances in a Vault
         text: |-
@@ -237,7 +251,8 @@ helps['dataprotection backup-instance list'] = """
 
 helps['dataprotection backup-instance show'] = """
     type: command
-    short-summary: "Gets a backup instance with name in a backup vault."
+    short-summary: "Gets a backup instance with name in a backup vault Command group swagger name=BackupInstances, \
+Command swagger name=Get."
     examples:
       - name: Get BackupInstance
         text: |-
@@ -247,10 +262,11 @@ helps['dataprotection backup-instance show'] = """
 
 helps['dataprotection backup-instance create'] = """
     type: command
-    short-summary: "Create a backup instance in a backup vault."
+    short-summary: "Create a backup instance in a backup vault Command group swagger name=BackupInstances, Command \
+swagger name=CreateOrUpdate#Create."
     parameters:
       - name: --data-source-info
-        short-summary: "Gets or sets the data source information."
+        short-summary: "Gets or sets the data source information. Swagger name=dataSourceInfo"
         long-summary: |
             Usage: --data-source-info datasource-type=XX object-type=XX resource-id=XX resource-location=XX \
 resource-name=XX resource-type=XX resource-uri=XX
@@ -264,7 +280,7 @@ resources, this will be the ID created by backup service via Fabric/Vault.
             resource-type: Resource Type of Datasource.
             resource-uri: Uri of the resource.
       - name: --data-source-set-info
-        short-summary: "Gets or sets the data source set information."
+        short-summary: "Gets or sets the data source set information. Swagger name=dataSourceSetInfo"
         long-summary: |
             Usage: --data-source-set-info datasource-type=XX object-type=XX resource-id=XX resource-location=XX \
 resource-name=XX resource-type=XX resource-uri=XX
@@ -278,7 +294,7 @@ resources, this will be the ID created by backup service via Fabric/Vault.
             resource-type: Resource Type of Datasource.
             resource-uri: Uri of the resource.
       - name: --policy-parameters
-        short-summary: "Policy parameters for the backup instance"
+        short-summary: "Policy parameters for the backup instance. Swagger name=policyParameters"
         long-summary: |
             Usage: --policy-parameters data-store-parameters-list=XX
 
@@ -303,10 +319,11 @@ toreType":"OperationalStore","objectType":"AzureOperationalStoreParameters","res
 
 helps['dataprotection backup-instance update'] = """
     type: command
-    short-summary: "Update a backup instance in a backup vault."
+    short-summary: "Update a backup instance in a backup vault Command group swagger name=BackupInstances, Command \
+swagger name=CreateOrUpdate#Update."
     parameters:
       - name: --data-source-info
-        short-summary: "Gets or sets the data source information."
+        short-summary: "Gets or sets the data source information. Swagger name=dataSourceInfo"
         long-summary: |
             Usage: --data-source-info datasource-type=XX object-type=XX resource-id=XX resource-location=XX \
 resource-name=XX resource-type=XX resource-uri=XX
@@ -320,7 +337,7 @@ resources, this will be the ID created by backup service via Fabric/Vault.
             resource-type: Resource Type of Datasource.
             resource-uri: Uri of the resource.
       - name: --data-source-set-info
-        short-summary: "Gets or sets the data source set information."
+        short-summary: "Gets or sets the data source set information. Swagger name=dataSourceSetInfo"
         long-summary: |
             Usage: --data-source-set-info datasource-type=XX object-type=XX resource-id=XX resource-location=XX \
 resource-name=XX resource-type=XX resource-uri=XX
@@ -334,7 +351,7 @@ resources, this will be the ID created by backup service via Fabric/Vault.
             resource-type: Resource Type of Datasource.
             resource-uri: Uri of the resource.
       - name: --policy-parameters
-        short-summary: "Policy parameters for the backup instance"
+        short-summary: "Policy parameters for the backup instance. Swagger name=policyParameters"
         long-summary: |
             Usage: --policy-parameters data-store-parameters-list=XX
 
@@ -343,7 +360,8 @@ resources, this will be the ID created by backup service via Fabric/Vault.
 
 helps['dataprotection backup-instance delete'] = """
     type: command
-    short-summary: "Delete a backup instance in a backup vault."
+    short-summary: "Delete a backup instance in a backup vault Command group swagger name=BackupInstances, Command \
+swagger name=Delete."
     examples:
       - name: Delete BackupInstance
         text: |-
@@ -353,7 +371,8 @@ helps['dataprotection backup-instance delete'] = """
 
 helps['dataprotection backup-instance adhoc-backup'] = """
     type: command
-    short-summary: "Trigger adhoc backup."
+    short-summary: "Trigger adhoc backup Command group swagger name=BackupInstances, Command swagger \
+name=AdhocBackup."
     examples:
       - name: Trigger Adhoc Backup
         text: |-
@@ -364,15 +383,21 @@ helps['dataprotection backup-instance adhoc-backup'] = """
 helps['dataprotection backup-instance azure-backup-recovery-point-based-restore-request'] = """
     type: group
     short-summary: Manage backup instance with dataprotection sub group azure-backup-recovery-point-based-restore-reque\
-st
+st. Command group swagger name=BackupInstances
+"""
+
+helps['dataprotection backup-instance azure-backup-recovery-point-based-restore-request item-level-restore-target-info'] = """
+    type: group
+    short-summary: Manage azure-backup-recovery-point-based-restore-request with item-level-restore-target-info
 """
 
 helps['dataprotection backup-instance azure-backup-recovery-point-based-restore-request item-level-restore-target-info trigger-restore'] = """
     type: command
-    short-summary: "Triggers restore for a BackupInstance."
+    short-summary: "Triggers restore for a BackupInstance Command group swagger name=BackupInstances, Command swagger \
+name=TriggerRestore#AzureBackupRecoveryPointBasedRestoreRequest#ItemLevelRestoreTargetInfo."
     parameters:
       - name: --item-level-restore-target-info-restore-criteria
-        short-summary: "Restore Criteria"
+        short-summary: "Restore Criteria. Swagger name=restoreCriteria"
         long-summary: |
             Usage: --item-level-restore-target-info-restore-criteria object-type=XX
 
@@ -381,7 +406,7 @@ helps['dataprotection backup-instance azure-backup-recovery-point-based-restore-
             Multiple actions can be specified by using more than one --item-level-restore-target-info-restore-criteria \
 argument.
       - name: --item-level-restore-target-info-datasource-info
-        short-summary: "Information of target DS"
+        short-summary: "Information of target DS. Swagger name=datasourceInfo"
         long-summary: |
             Usage: --item-level-restore-target-info-datasource-info datasource-type=XX object-type=XX resource-id=XX \
 resource-location=XX resource-name=XX resource-type=XX resource-uri=XX
@@ -395,7 +420,7 @@ resources, this will be the ID created by backup service via Fabric/Vault.
             resource-type: Resource Type of Datasource.
             resource-uri: Uri of the resource.
       - name: --item-level-restore-target-info-datasource-set-info
-        short-summary: "Information of target DS Set"
+        short-summary: "Information of target DS Set. Swagger name=datasourceSetInfo"
         long-summary: |
             Usage: --item-level-restore-target-info-datasource-set-info datasource-type=XX object-type=XX \
 resource-id=XX resource-location=XX resource-name=XX resource-type=XX resource-uri=XX
@@ -412,29 +437,28 @@ resources, this will be the ID created by backup service via Fabric/Vault.
       - name: Trigger Restore
         text: |-
                az dataprotection backup-instance azure-backup-recovery-point-based-restore-request \
-item-level-restore-target-info trigger-restore --name "testInstance1" --azurebackuprecoverypointbasedrestorerequest-rec\
-overy-point-id "hardcodedRP" --azurebackuprecoverypointbasedrestorerequest-source-data-store-type "VaultStore" \
---resource-group "000pikumar" --vault-name "PratikPrivatePreviewVault1"
+item-level-restore-target-info trigger-restore --name "testInstance1" --recovery-point-id "hardcodedRP" \
+--source-data-store-type "VaultStore" --resource-group "000pikumar" --vault-name "PratikPrivatePreviewVault1"
       - name: Trigger Restore As Files
         text: |-
                az dataprotection backup-instance azure-backup-recovery-point-based-restore-request \
-item-level-restore-target-info trigger-restore --name "testInstance1" --azurebackuprecoverypointbasedrestorerequest-rec\
-overy-point-id "hardcodedRP" --azurebackuprecoverypointbasedrestorerequest-source-data-store-type "VaultStore" \
---resource-group "000pikumar" --vault-name "PrivatePreviewVault1"
-      - name: Trigger Restore With Rehydration
-        text: |-
-               az dataprotection backup-instance azure-backup-recovery-point-based-restore-request \
-item-level-restore-target-info trigger-restore --name "testInstance1" --azurebackuprecoverypointbasedrestorerequest-rec\
-overy-point-id "hardcodedRP" --azurebackuprecoverypointbasedrestorerequest-source-data-store-type "VaultStore" \
---resource-group "000pikumar" --vault-name "PratikPrivatePreviewVault1"
+item-level-restore-target-info trigger-restore --name "testInstance1" --recovery-point-id "hardcodedRP" \
+--source-data-store-type "VaultStore" --resource-group "000pikumar" --vault-name "PrivatePreviewVault1"
+"""
+
+helps['dataprotection backup-instance azure-backup-recovery-point-based-restore-request restore-files-target-info'] = """
+    type: group
+    short-summary: Manage azure-backup-recovery-point-based-restore-request with restore-files-target-info
 """
 
 helps['dataprotection backup-instance azure-backup-recovery-point-based-restore-request restore-files-target-info trigger-restore'] = """
     type: command
-    short-summary: "Triggers restore for a BackupInstance."
+    short-summary: "Triggers restore for a BackupInstance Command group swagger name=BackupInstances, Command swagger \
+name=TriggerRestore#AzureBackupRecoveryPointBasedRestoreRequest#RestoreFilesTargetInfo."
     parameters:
       - name: --restore-files-target-info-target-details
-        short-summary: "Destination of RestoreAsFiles operation, when destination is not a datasource"
+        short-summary: "Destination of RestoreAsFiles operation, when destination is not a datasource. Swagger \
+name=targetDetails"
         long-summary: |
             Usage: --restore-files-target-info-target-details file-prefix=XX restore-target-location-type=XX url=XX
 
@@ -447,29 +471,27 @@ string value for the enum {Microsoft.Internal.AzureBackup.DataProtection.Common.
       - name: Trigger Restore
         text: |-
                az dataprotection backup-instance azure-backup-recovery-point-based-restore-request \
-restore-files-target-info trigger-restore --name "testInstance1" --azurebackuprecoverypointbasedrestorerequest-recovery\
--point-id "hardcodedRP" --azurebackuprecoverypointbasedrestorerequest-source-data-store-type "VaultStore" \
---resource-group "000pikumar" --vault-name "PratikPrivatePreviewVault1"
+restore-files-target-info trigger-restore --name "testInstance1" --recovery-point-id "hardcodedRP" \
+--source-data-store-type "VaultStore" --resource-group "000pikumar" --vault-name "PratikPrivatePreviewVault1"
       - name: Trigger Restore As Files
         text: |-
                az dataprotection backup-instance azure-backup-recovery-point-based-restore-request \
-restore-files-target-info trigger-restore --name "testInstance1" --azurebackuprecoverypointbasedrestorerequest-recovery\
--point-id "hardcodedRP" --azurebackuprecoverypointbasedrestorerequest-source-data-store-type "VaultStore" \
---resource-group "000pikumar" --vault-name "PrivatePreviewVault1"
-      - name: Trigger Restore With Rehydration
-        text: |-
-               az dataprotection backup-instance azure-backup-recovery-point-based-restore-request \
-restore-files-target-info trigger-restore --name "testInstance1" --azurebackuprecoverypointbasedrestorerequest-recovery\
--point-id "hardcodedRP" --azurebackuprecoverypointbasedrestorerequest-source-data-store-type "VaultStore" \
---resource-group "000pikumar" --vault-name "PratikPrivatePreviewVault1"
+restore-files-target-info trigger-restore --name "testInstance1" --recovery-point-id "hardcodedRP" \
+--source-data-store-type "VaultStore" --resource-group "000pikumar" --vault-name "PrivatePreviewVault1"
+"""
+
+helps['dataprotection backup-instance azure-backup-recovery-point-based-restore-request restore-target-info'] = """
+    type: group
+    short-summary: Manage azure-backup-recovery-point-based-restore-request with restore-target-info
 """
 
 helps['dataprotection backup-instance azure-backup-recovery-point-based-restore-request restore-target-info trigger-restore'] = """
     type: command
-    short-summary: "Triggers restore for a BackupInstance."
+    short-summary: "Triggers restore for a BackupInstance Command group swagger name=BackupInstances, Command swagger \
+name=TriggerRestore#AzureBackupRecoveryPointBasedRestoreRequest#RestoreTargetInfo."
     parameters:
       - name: --restore-target-info-datasource-info
-        short-summary: "Information of target DS"
+        short-summary: "Information of target DS. Swagger name=datasourceInfo"
         long-summary: |
             Usage: --restore-target-info-datasource-info datasource-type=XX object-type=XX resource-id=XX \
 resource-location=XX resource-name=XX resource-type=XX resource-uri=XX
@@ -483,7 +505,7 @@ resources, this will be the ID created by backup service via Fabric/Vault.
             resource-type: Resource Type of Datasource.
             resource-uri: Uri of the resource.
       - name: --restore-target-info-datasource-set-info
-        short-summary: "Information of target DS Set"
+        short-summary: "Information of target DS Set. Swagger name=datasourceSetInfo"
         long-summary: |
             Usage: --restore-target-info-datasource-set-info datasource-type=XX object-type=XX resource-id=XX \
 resource-location=XX resource-name=XX resource-type=XX resource-uri=XX
@@ -500,35 +522,33 @@ resources, this will be the ID created by backup service via Fabric/Vault.
       - name: Trigger Restore
         text: |-
                az dataprotection backup-instance azure-backup-recovery-point-based-restore-request restore-target-info \
-trigger-restore --name "testInstance1" --azurebackuprecoverypointbasedrestorerequest-recovery-point-id "hardcodedRP" \
---azurebackuprecoverypointbasedrestorerequest-source-data-store-type "VaultStore" --resource-group "000pikumar" \
---vault-name "PratikPrivatePreviewVault1"
+trigger-restore --name "testInstance1" --recovery-point-id "hardcodedRP" --source-data-store-type "VaultStore" \
+--resource-group "000pikumar" --vault-name "PratikPrivatePreviewVault1"
       - name: Trigger Restore As Files
         text: |-
                az dataprotection backup-instance azure-backup-recovery-point-based-restore-request restore-target-info \
-trigger-restore --name "testInstance1" --azurebackuprecoverypointbasedrestorerequest-recovery-point-id "hardcodedRP" \
---azurebackuprecoverypointbasedrestorerequest-source-data-store-type "VaultStore" --resource-group "000pikumar" \
---vault-name "PrivatePreviewVault1"
-      - name: Trigger Restore With Rehydration
-        text: |-
-               az dataprotection backup-instance azure-backup-recovery-point-based-restore-request restore-target-info \
-trigger-restore --name "testInstance1" --azurebackuprecoverypointbasedrestorerequest-recovery-point-id "hardcodedRP" \
---azurebackuprecoverypointbasedrestorerequest-source-data-store-type "VaultStore" --resource-group "000pikumar" \
---vault-name "PratikPrivatePreviewVault1"
+trigger-restore --name "testInstance1" --recovery-point-id "hardcodedRP" --source-data-store-type "VaultStore" \
+--resource-group "000pikumar" --vault-name "PrivatePreviewVault1"
 """
 
 helps['dataprotection backup-instance azure-backup-recovery-time-based-restore-request'] = """
     type: group
     short-summary: Manage backup instance with dataprotection sub group azure-backup-recovery-time-based-restore-reques\
-t
+t. Command group swagger name=BackupInstances
+"""
+
+helps['dataprotection backup-instance azure-backup-recovery-time-based-restore-request item-level-restore-target-info'] = """
+    type: group
+    short-summary: Manage azure-backup-recovery-time-based-restore-request with item-level-restore-target-info
 """
 
 helps['dataprotection backup-instance azure-backup-recovery-time-based-restore-request item-level-restore-target-info trigger-restore'] = """
     type: command
-    short-summary: "Triggers restore for a BackupInstance."
+    short-summary: "Triggers restore for a BackupInstance Command group swagger name=BackupInstances, Command swagger \
+name=TriggerRestore#AzureBackupRecoveryTimeBasedRestoreRequest#ItemLevelRestoreTargetInfo."
     parameters:
       - name: --item-level-restore-target-info-restore-criteria
-        short-summary: "Restore Criteria"
+        short-summary: "Restore Criteria. Swagger name=restoreCriteria"
         long-summary: |
             Usage: --item-level-restore-target-info-restore-criteria object-type=XX
 
@@ -537,7 +557,7 @@ helps['dataprotection backup-instance azure-backup-recovery-time-based-restore-r
             Multiple actions can be specified by using more than one --item-level-restore-target-info-restore-criteria \
 argument.
       - name: --item-level-restore-target-info-datasource-info
-        short-summary: "Information of target DS"
+        short-summary: "Information of target DS. Swagger name=datasourceInfo"
         long-summary: |
             Usage: --item-level-restore-target-info-datasource-info datasource-type=XX object-type=XX resource-id=XX \
 resource-location=XX resource-name=XX resource-type=XX resource-uri=XX
@@ -551,7 +571,7 @@ resources, this will be the ID created by backup service via Fabric/Vault.
             resource-type: Resource Type of Datasource.
             resource-uri: Uri of the resource.
       - name: --item-level-restore-target-info-datasource-set-info
-        short-summary: "Information of target DS Set"
+        short-summary: "Information of target DS Set. Swagger name=datasourceSetInfo"
         long-summary: |
             Usage: --item-level-restore-target-info-datasource-set-info datasource-type=XX object-type=XX \
 resource-id=XX resource-location=XX resource-name=XX resource-type=XX resource-uri=XX
@@ -564,30 +584,21 @@ resources, this will be the ID created by backup service via Fabric/Vault.
             resource-name: Unique identifier of the resource in the context of parent.
             resource-type: Resource Type of Datasource.
             resource-uri: Uri of the resource.
-    examples:
-      - name: Trigger Restore
-        text: |-
-               az dataprotection backup-instance azure-backup-recovery-time-based-restore-request \
-item-level-restore-target-info trigger-restore --name "testInstance1" --azurebackuprecoverytimebasedrestorerequest-sour\
-ce-data-store-type "VaultStore" --resource-group "000pikumar" --vault-name "PratikPrivatePreviewVault1"
-      - name: Trigger Restore As Files
-        text: |-
-               az dataprotection backup-instance azure-backup-recovery-time-based-restore-request \
-item-level-restore-target-info trigger-restore --name "testInstance1" --azurebackuprecoverytimebasedrestorerequest-sour\
-ce-data-store-type "VaultStore" --resource-group "000pikumar" --vault-name "PrivatePreviewVault1"
-      - name: Trigger Restore With Rehydration
-        text: |-
-               az dataprotection backup-instance azure-backup-recovery-time-based-restore-request \
-item-level-restore-target-info trigger-restore --name "testInstance1" --azurebackuprecoverytimebasedrestorerequest-sour\
-ce-data-store-type "VaultStore" --resource-group "000pikumar" --vault-name "PratikPrivatePreviewVault1"
+"""
+
+helps['dataprotection backup-instance azure-backup-recovery-time-based-restore-request restore-files-target-info'] = """
+    type: group
+    short-summary: Manage azure-backup-recovery-time-based-restore-request with restore-files-target-info
 """
 
 helps['dataprotection backup-instance azure-backup-recovery-time-based-restore-request restore-files-target-info trigger-restore'] = """
     type: command
-    short-summary: "Triggers restore for a BackupInstance."
+    short-summary: "Triggers restore for a BackupInstance Command group swagger name=BackupInstances, Command swagger \
+name=TriggerRestore#AzureBackupRecoveryTimeBasedRestoreRequest#RestoreFilesTargetInfo."
     parameters:
       - name: --restore-files-target-info-target-details
-        short-summary: "Destination of RestoreAsFiles operation, when destination is not a datasource"
+        short-summary: "Destination of RestoreAsFiles operation, when destination is not a datasource. Swagger \
+name=targetDetails"
         long-summary: |
             Usage: --restore-files-target-info-target-details file-prefix=XX restore-target-location-type=XX url=XX
 
@@ -596,30 +607,20 @@ will be the common prefix for all of them
             restore-target-location-type: Required. Denotes the target location where the data will be restored, \
 string value for the enum {Microsoft.Internal.AzureBackup.DataProtection.Common.Interface.RestoreTargetLocationType}
             url: Required. Url denoting the restore destination. It can point to container / file share etc
-    examples:
-      - name: Trigger Restore
-        text: |-
-               az dataprotection backup-instance azure-backup-recovery-time-based-restore-request \
-restore-files-target-info trigger-restore --name "testInstance1" --azurebackuprecoverytimebasedrestorerequest-source-da\
-ta-store-type "VaultStore" --resource-group "000pikumar" --vault-name "PratikPrivatePreviewVault1"
-      - name: Trigger Restore As Files
-        text: |-
-               az dataprotection backup-instance azure-backup-recovery-time-based-restore-request \
-restore-files-target-info trigger-restore --name "testInstance1" --azurebackuprecoverytimebasedrestorerequest-source-da\
-ta-store-type "VaultStore" --resource-group "000pikumar" --vault-name "PrivatePreviewVault1"
-      - name: Trigger Restore With Rehydration
-        text: |-
-               az dataprotection backup-instance azure-backup-recovery-time-based-restore-request \
-restore-files-target-info trigger-restore --name "testInstance1" --azurebackuprecoverytimebasedrestorerequest-source-da\
-ta-store-type "VaultStore" --resource-group "000pikumar" --vault-name "PratikPrivatePreviewVault1"
+"""
+
+helps['dataprotection backup-instance azure-backup-recovery-time-based-restore-request restore-target-info'] = """
+    type: group
+    short-summary: Manage azure-backup-recovery-time-based-restore-request with restore-target-info
 """
 
 helps['dataprotection backup-instance azure-backup-recovery-time-based-restore-request restore-target-info trigger-restore'] = """
     type: command
-    short-summary: "Triggers restore for a BackupInstance."
+    short-summary: "Triggers restore for a BackupInstance Command group swagger name=BackupInstances, Command swagger \
+name=TriggerRestore#AzureBackupRecoveryTimeBasedRestoreRequest#RestoreTargetInfo."
     parameters:
       - name: --restore-target-info-datasource-info
-        short-summary: "Information of target DS"
+        short-summary: "Information of target DS. Swagger name=datasourceInfo"
         long-summary: |
             Usage: --restore-target-info-datasource-info datasource-type=XX object-type=XX resource-id=XX \
 resource-location=XX resource-name=XX resource-type=XX resource-uri=XX
@@ -633,7 +634,7 @@ resources, this will be the ID created by backup service via Fabric/Vault.
             resource-type: Resource Type of Datasource.
             resource-uri: Uri of the resource.
       - name: --restore-target-info-datasource-set-info
-        short-summary: "Information of target DS Set"
+        short-summary: "Information of target DS Set. Swagger name=datasourceSetInfo"
         long-summary: |
             Usage: --restore-target-info-datasource-set-info datasource-type=XX object-type=XX resource-id=XX \
 resource-location=XX resource-name=XX resource-type=XX resource-uri=XX
@@ -646,35 +647,26 @@ resources, this will be the ID created by backup service via Fabric/Vault.
             resource-name: Unique identifier of the resource in the context of parent.
             resource-type: Resource Type of Datasource.
             resource-uri: Uri of the resource.
-    examples:
-      - name: Trigger Restore
-        text: |-
-               az dataprotection backup-instance azure-backup-recovery-time-based-restore-request restore-target-info \
-trigger-restore --name "testInstance1" --azurebackuprecoverytimebasedrestorerequest-source-data-store-type \
-"VaultStore" --resource-group "000pikumar" --vault-name "PratikPrivatePreviewVault1"
-      - name: Trigger Restore As Files
-        text: |-
-               az dataprotection backup-instance azure-backup-recovery-time-based-restore-request restore-target-info \
-trigger-restore --name "testInstance1" --azurebackuprecoverytimebasedrestorerequest-source-data-store-type \
-"VaultStore" --resource-group "000pikumar" --vault-name "PrivatePreviewVault1"
-      - name: Trigger Restore With Rehydration
-        text: |-
-               az dataprotection backup-instance azure-backup-recovery-time-based-restore-request restore-target-info \
-trigger-restore --name "testInstance1" --azurebackuprecoverytimebasedrestorerequest-source-data-store-type \
-"VaultStore" --resource-group "000pikumar" --vault-name "PratikPrivatePreviewVault1"
 """
 
 helps['dataprotection backup-instance azure-backup-restore-with-rehydration-request'] = """
     type: group
-    short-summary: Manage backup instance with dataprotection sub group azure-backup-restore-with-rehydration-request
+    short-summary: Manage backup instance with dataprotection sub group azure-backup-restore-with-rehydration-request. \
+Command group swagger name=BackupInstances
+"""
+
+helps['dataprotection backup-instance azure-backup-restore-with-rehydration-request item-level-restore-target-info'] = """
+    type: group
+    short-summary: Manage azure-backup-restore-with-rehydration-request with item-level-restore-target-info
 """
 
 helps['dataprotection backup-instance azure-backup-restore-with-rehydration-request item-level-restore-target-info trigger-restore'] = """
     type: command
-    short-summary: "Triggers restore for a BackupInstance."
+    short-summary: "Triggers restore for a BackupInstance Command group swagger name=BackupInstances, Command swagger \
+name=TriggerRestore#AzureBackupRestoreWithRehydrationRequest#ItemLevelRestoreTargetInfo."
     parameters:
       - name: --item-level-restore-target-info-restore-criteria
-        short-summary: "Restore Criteria"
+        short-summary: "Restore Criteria. Swagger name=restoreCriteria"
         long-summary: |
             Usage: --item-level-restore-target-info-restore-criteria object-type=XX
 
@@ -683,7 +675,7 @@ helps['dataprotection backup-instance azure-backup-restore-with-rehydration-requ
             Multiple actions can be specified by using more than one --item-level-restore-target-info-restore-criteria \
 argument.
       - name: --item-level-restore-target-info-datasource-info
-        short-summary: "Information of target DS"
+        short-summary: "Information of target DS. Swagger name=datasourceInfo"
         long-summary: |
             Usage: --item-level-restore-target-info-datasource-info datasource-type=XX object-type=XX resource-id=XX \
 resource-location=XX resource-name=XX resource-type=XX resource-uri=XX
@@ -697,7 +689,7 @@ resources, this will be the ID created by backup service via Fabric/Vault.
             resource-type: Resource Type of Datasource.
             resource-uri: Uri of the resource.
       - name: --item-level-restore-target-info-datasource-set-info
-        short-summary: "Information of target DS Set"
+        short-summary: "Information of target DS Set. Swagger name=datasourceSetInfo"
         long-summary: |
             Usage: --item-level-restore-target-info-datasource-set-info datasource-type=XX object-type=XX \
 resource-id=XX resource-location=XX resource-name=XX resource-type=XX resource-uri=XX
@@ -711,33 +703,27 @@ resources, this will be the ID created by backup service via Fabric/Vault.
             resource-type: Resource Type of Datasource.
             resource-uri: Uri of the resource.
     examples:
-      - name: Trigger Restore
-        text: |-
-               az dataprotection backup-instance azure-backup-restore-with-rehydration-request \
-item-level-restore-target-info trigger-restore --name "testInstance1" --azurebackuprestorewithrehydrationrequest-recove\
-ry-point-id "hardcodedRP" --azurebackuprestorewithrehydrationrequest-source-data-store-type "VaultStore" \
---resource-group "000pikumar" --vault-name "PratikPrivatePreviewVault1"
-      - name: Trigger Restore As Files
-        text: |-
-               az dataprotection backup-instance azure-backup-restore-with-rehydration-request \
-item-level-restore-target-info trigger-restore --name "testInstance1" --azurebackuprestorewithrehydrationrequest-recove\
-ry-point-id "hardcodedRP" --azurebackuprestorewithrehydrationrequest-source-data-store-type "VaultStore" \
---resource-group "000pikumar" --vault-name "PrivatePreviewVault1"
       - name: Trigger Restore With Rehydration
         text: |-
                az dataprotection backup-instance azure-backup-restore-with-rehydration-request \
-item-level-restore-target-info trigger-restore --name "testInstance1" --azurebackuprestorewithrehydrationrequest-recove\
-ry-point-id "hardcodedRP" --azurebackuprestorewithrehydrationrequest-rehydration-priority "High" \
---azurebackuprestorewithrehydrationrequest-rehydration-retention-duration "7D" --azurebackuprestorewithrehydrationreque\
-st-source-data-store-type "VaultStore" --resource-group "000pikumar" --vault-name "PratikPrivatePreviewVault1"
+item-level-restore-target-info trigger-restore --name "testInstance1" --recovery-point-id "hardcodedRP" \
+--rehydration-priority "High" --rehydration-retention-duration "7D" --source-data-store-type "VaultStore" \
+--resource-group "000pikumar" --vault-name "PratikPrivatePreviewVault1"
+"""
+
+helps['dataprotection backup-instance azure-backup-restore-with-rehydration-request restore-files-target-info'] = """
+    type: group
+    short-summary: Manage azure-backup-restore-with-rehydration-request with restore-files-target-info
 """
 
 helps['dataprotection backup-instance azure-backup-restore-with-rehydration-request restore-files-target-info trigger-restore'] = """
     type: command
-    short-summary: "Triggers restore for a BackupInstance."
+    short-summary: "Triggers restore for a BackupInstance Command group swagger name=BackupInstances, Command swagger \
+name=TriggerRestore#AzureBackupRestoreWithRehydrationRequest#RestoreFilesTargetInfo."
     parameters:
       - name: --restore-files-target-info-target-details
-        short-summary: "Destination of RestoreAsFiles operation, when destination is not a datasource"
+        short-summary: "Destination of RestoreAsFiles operation, when destination is not a datasource. Swagger \
+name=targetDetails"
         long-summary: |
             Usage: --restore-files-target-info-target-details file-prefix=XX restore-target-location-type=XX url=XX
 
@@ -747,33 +733,26 @@ will be the common prefix for all of them
 string value for the enum {Microsoft.Internal.AzureBackup.DataProtection.Common.Interface.RestoreTargetLocationType}
             url: Required. Url denoting the restore destination. It can point to container / file share etc
     examples:
-      - name: Trigger Restore
-        text: |-
-               az dataprotection backup-instance azure-backup-restore-with-rehydration-request \
-restore-files-target-info trigger-restore --name "testInstance1" --azurebackuprestorewithrehydrationrequest-recovery-po\
-int-id "hardcodedRP" --azurebackuprestorewithrehydrationrequest-source-data-store-type "VaultStore" --resource-group \
-"000pikumar" --vault-name "PratikPrivatePreviewVault1"
-      - name: Trigger Restore As Files
-        text: |-
-               az dataprotection backup-instance azure-backup-restore-with-rehydration-request \
-restore-files-target-info trigger-restore --name "testInstance1" --azurebackuprestorewithrehydrationrequest-recovery-po\
-int-id "hardcodedRP" --azurebackuprestorewithrehydrationrequest-source-data-store-type "VaultStore" --resource-group \
-"000pikumar" --vault-name "PrivatePreviewVault1"
       - name: Trigger Restore With Rehydration
         text: |-
                az dataprotection backup-instance azure-backup-restore-with-rehydration-request \
-restore-files-target-info trigger-restore --name "testInstance1" --azurebackuprestorewithrehydrationrequest-recovery-po\
-int-id "hardcodedRP" --azurebackuprestorewithrehydrationrequest-rehydration-priority "High" \
---azurebackuprestorewithrehydrationrequest-rehydration-retention-duration "7D" --azurebackuprestorewithrehydrationreque\
-st-source-data-store-type "VaultStore" --resource-group "000pikumar" --vault-name "PratikPrivatePreviewVault1"
+restore-files-target-info trigger-restore --name "testInstance1" --recovery-point-id "hardcodedRP" \
+--rehydration-priority "High" --rehydration-retention-duration "7D" --source-data-store-type "VaultStore" \
+--resource-group "000pikumar" --vault-name "PratikPrivatePreviewVault1"
+"""
+
+helps['dataprotection backup-instance azure-backup-restore-with-rehydration-request restore-target-info'] = """
+    type: group
+    short-summary: Manage azure-backup-restore-with-rehydration-request with restore-target-info
 """
 
 helps['dataprotection backup-instance azure-backup-restore-with-rehydration-request restore-target-info trigger-restore'] = """
     type: command
-    short-summary: "Triggers restore for a BackupInstance."
+    short-summary: "Triggers restore for a BackupInstance Command group swagger name=BackupInstances, Command swagger \
+name=TriggerRestore#AzureBackupRestoreWithRehydrationRequest#RestoreTargetInfo."
     parameters:
       - name: --restore-target-info-datasource-info
-        short-summary: "Information of target DS"
+        short-summary: "Information of target DS. Swagger name=datasourceInfo"
         long-summary: |
             Usage: --restore-target-info-datasource-info datasource-type=XX object-type=XX resource-id=XX \
 resource-location=XX resource-name=XX resource-type=XX resource-uri=XX
@@ -787,7 +766,7 @@ resources, this will be the ID created by backup service via Fabric/Vault.
             resource-type: Resource Type of Datasource.
             resource-uri: Uri of the resource.
       - name: --restore-target-info-datasource-set-info
-        short-summary: "Information of target DS Set"
+        short-summary: "Information of target DS Set. Swagger name=datasourceSetInfo"
         long-summary: |
             Usage: --restore-target-info-datasource-set-info datasource-type=XX object-type=XX resource-id=XX \
 resource-location=XX resource-name=XX resource-type=XX resource-uri=XX
@@ -801,30 +780,18 @@ resources, this will be the ID created by backup service via Fabric/Vault.
             resource-type: Resource Type of Datasource.
             resource-uri: Uri of the resource.
     examples:
-      - name: Trigger Restore
-        text: |-
-               az dataprotection backup-instance azure-backup-restore-with-rehydration-request restore-target-info \
-trigger-restore --name "testInstance1" --azurebackuprestorewithrehydrationrequest-recovery-point-id "hardcodedRP" \
---azurebackuprestorewithrehydrationrequest-source-data-store-type "VaultStore" --resource-group "000pikumar" \
---vault-name "PratikPrivatePreviewVault1"
-      - name: Trigger Restore As Files
-        text: |-
-               az dataprotection backup-instance azure-backup-restore-with-rehydration-request restore-target-info \
-trigger-restore --name "testInstance1" --azurebackuprestorewithrehydrationrequest-recovery-point-id "hardcodedRP" \
---azurebackuprestorewithrehydrationrequest-source-data-store-type "VaultStore" --resource-group "000pikumar" \
---vault-name "PrivatePreviewVault1"
       - name: Trigger Restore With Rehydration
         text: |-
                az dataprotection backup-instance azure-backup-restore-with-rehydration-request restore-target-info \
-trigger-restore --name "testInstance1" --azurebackuprestorewithrehydrationrequest-recovery-point-id "hardcodedRP" \
---azurebackuprestorewithrehydrationrequest-rehydration-priority "High" --azurebackuprestorewithrehydrationrequest-rehyd\
-ration-retention-duration "7D" --azurebackuprestorewithrehydrationrequest-source-data-store-type "VaultStore" \
---resource-group "000pikumar" --vault-name "PratikPrivatePreviewVault1"
+trigger-restore --name "testInstance1" --recovery-point-id "hardcodedRP" --rehydration-priority "High" \
+--rehydration-retention-duration "7D" --source-data-store-type "VaultStore" --resource-group "000pikumar" --vault-name \
+"PratikPrivatePreviewVault1"
 """
 
 helps['dataprotection backup-instance trigger-rehydrate'] = """
     type: command
-    short-summary: "rehydrate recovery point for restore for a BackupInstance."
+    short-summary: "rehydrate recovery point for restore for a BackupInstance Command group swagger \
+name=BackupInstances, Command swagger name=TriggerRehydrate."
     examples:
       - name: Trigger Rehydrate
         text: |-
@@ -856,12 +823,13 @@ deleted.
 
 helps['dataprotection recovery-point'] = """
     type: group
-    short-summary: Manage recovery point with dataprotection
+    short-summary: Manage recovery point with dataprotection. Command group swagger name=RecoveryPoints
 """
 
 helps['dataprotection recovery-point show-list'] = """
     type: command
-    short-summary: "Returns a list of Recovery Points for a DataSource in a vault."
+    short-summary: "Returns a list of Recovery Points for a DataSource in a vault. Command group swagger \
+name=RecoveryPoints, Command swagger name=GetList."
     examples:
       - name: List Recovery Points in a Vault
         text: |-
@@ -871,12 +839,13 @@ helps['dataprotection recovery-point show-list'] = """
 
 helps['dataprotection recovery-point'] = """
     type: group
-    short-summary: Manage recovery point with dataprotection
+    short-summary: Manage recovery point with dataprotection. Command group swagger name=RecoveryPoint
 """
 
 helps['dataprotection recovery-point show'] = """
     type: command
-    short-summary: "Gets a Recovery Point using recoveryPointId for a Datasource."
+    short-summary: "Gets a Recovery Point using recoveryPointId for a Datasource. Command group swagger \
+name=RecoveryPoint, Command swagger name=Get."
     examples:
       - name: Get Recovery Point
         text: |-
@@ -886,12 +855,13 @@ helps['dataprotection recovery-point show'] = """
 
 helps['dataprotection job'] = """
     type: group
-    short-summary: Manage job with dataprotection
+    short-summary: Manage job with dataprotection. Command group swagger name=Jobs
 """
 
 helps['dataprotection job list'] = """
     type: command
-    short-summary: "Returns list of jobs belonging to a backup vault."
+    short-summary: "Returns list of jobs belonging to a backup vault Command group swagger name=Jobs, Command swagger \
+name=List."
     examples:
       - name: Get Jobs
         text: |-
@@ -900,12 +870,12 @@ helps['dataprotection job list'] = """
 
 helps['dataprotection job'] = """
     type: group
-    short-summary: Manage job with dataprotection
+    short-summary: Manage job with dataprotection. Command group swagger name=Job
 """
 
 helps['dataprotection job show'] = """
     type: command
-    short-summary: "Gets a job with id in a backup vault."
+    short-summary: "Gets a job with id in a backup vault Command group swagger name=Job, Command swagger name=Get."
     examples:
       - name: Get Job
         text: |-

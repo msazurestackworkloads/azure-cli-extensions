@@ -128,8 +128,8 @@ def step_backup_instance_azure(test, checks=None):
     test.cmd('az dataprotection backup-instance azure-backup-recovery-point-based-restore-request '
              'item-level-restore-target-info trigger-restore '
              '--name "{myBackupInstance}" '
-             '--azurebackuprecoverypointbasedrestorerequest-recovery-point-id "hardcodedRP" '
-             '--azurebackuprecoverypointbasedrestorerequest-source-data-store-type "VaultStore" '
+             '--recovery-point-id "hardcodedRP" '
+             '--source-data-store-type "VaultStore" '
              '--resource-group "{rg_2}" '
              '--vault-name "{myBackupVault}"',
              checks=checks)
@@ -143,8 +143,8 @@ def step_backup_instance_azure2(test, checks=None):
     test.cmd('az dataprotection backup-instance azure-backup-recovery-point-based-restore-request '
              'item-level-restore-target-info trigger-restore '
              '--name "{myBackupInstance}" '
-             '--azurebackuprecoverypointbasedrestorerequest-recovery-point-id "hardcodedRP" '
-             '--azurebackuprecoverypointbasedrestorerequest-source-data-store-type "VaultStore" '
+             '--recovery-point-id "hardcodedRP" '
+             '--source-data-store-type "VaultStore" '
              '--resource-group "{rg_2}" '
              '--vault-name "PrivatePreviewVault1"',
              checks=checks)
@@ -153,7 +153,18 @@ def step_backup_instance_azure2(test, checks=None):
 # EXAMPLE: /BackupInstances/post/Trigger Restore With Rehydration
 @try_manual
 def step_backup_instance_azure3(test, checks=None):
-    return step_backup_instance_azure(test, checks)
+    if checks is None:
+        checks = []
+    test.cmd('az dataprotection backup-instance azure-backup-restore-with-rehydration-request '
+             'item-level-restore-target-info trigger-restore '
+             '--name "{myBackupInstance}" '
+             '--recovery-point-id "hardcodedRP" '
+             '--rehydration-priority "High" '
+             '--rehydration-retention-duration "7D" '
+             '--source-data-store-type "VaultStore" '
+             '--resource-group "{rg_2}" '
+             '--vault-name "{myBackupVault}"',
+             checks=checks)
 
 
 # EXAMPLE: /BackupPolicies/delete/Delete BackupPolicy

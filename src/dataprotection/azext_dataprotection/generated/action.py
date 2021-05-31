@@ -270,7 +270,7 @@ class AddItemLevelRestoreTargetInfoRestoreCriteria(argparse._AppendAction):
 
             else:
                 raise CLIError(
-                    'Unsupported Key {} is provided for parameter item-level-restore-target-info_restore-criteria. All'
+                    'Unsupported Key {} is provided for parameter item-level-restore-target-info-restore-criteria. All'
                     ' possible keys are: object-type'.format(k)
                 )
 
@@ -311,7 +311,7 @@ class AddRestoreFilesTargetInfoTargetDetails(argparse.Action):
 
             else:
                 raise CLIError(
-                    'Unsupported Key {} is provided for parameter restore-files-target-info_target-details. All'
+                    'Unsupported Key {} is provided for parameter restore-files-target-info-target-details. All'
                     ' possible keys are: file-prefix, restore-target-location-type, url'.format(k)
                 )
 
