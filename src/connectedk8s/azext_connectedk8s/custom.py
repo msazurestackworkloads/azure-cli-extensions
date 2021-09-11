@@ -201,7 +201,7 @@ def create_connectedk8s(cmd, client, resource_group_name, cluster_name, https_pr
                                      "in the resource group {} ".format(resource_group_name) +
                                      "and corresponds to a different Kubernetes cluster.", recommendation="To onboard this Kubernetes cluster " +
                                      "to Azure, specify different resource name or resource group name.")
-
+    """
     try:
         k8s_contexts = config.list_kube_config_contexts()  # returns tuple of (all_contexts, current_context)
         if kube_context:  # if custom kube-context is specified
@@ -231,7 +231,7 @@ def create_connectedk8s(cmd, client, resource_group_name, cluster_name, https_pr
         raise e
     except Exception as e:
         logger.warning("Failed to validate if the active namespace exists on the kubernetes cluster. Exception: {}".format(str(e)))
-
+    """
     # Resource group Creation
     if resource_group_exists(cmd.cli_ctx, resource_group_name, subscription_id) is False:
         from azure.cli.core.profiles import ResourceType
@@ -286,7 +286,9 @@ def create_connectedk8s(cmd, client, resource_group_name, cluster_name, https_pr
     put_cc_response = create_cc_resource(client, resource_group_name, cluster_name, cc, no_wait)
 
     # Checking if custom locations rp is registered and fetching oid if it is registered
-    enable_custom_locations, custom_locations_oid = check_cl_registration_and_get_oid(cmd, cl_oid)
+    #enable_custom_locations, custom_locations_oid = check_cl_registration_and_get_oid(cmd, cl_oid)
+    enable_custom_locations = False
+    custom_locations_oid = ""
 
     # Install azure-arc agents
     utils.helm_install_release(chart_path, subscription_id, kubernetes_distro, kubernetes_infra, resource_group_name, cluster_name,
@@ -569,7 +571,7 @@ def check_linux_amd64_node(api_response):
 def generate_request_payload(configuration, location, public_key, tags, kubernetes_distro, kubernetes_infra):
     # Create connected cluster resource object
     identity = ConnectedClusterIdentity(
-        type="SystemAssigned"
+        type="None"
     )
     if tags is None:
         tags = {}
@@ -1792,11 +1794,13 @@ def prepare_clientproxy_data(response):
     kubeconfig['name'] = 'Kubeconfig'
     kubeconfig['value'] = b64encode(response.kubeconfigs[0].value).decode("utf-8")
     data['kubeconfigs'].append(kubeconfig)
+    """
     data['hybridConnectionConfig'] = {}
     data['hybridConnectionConfig']['relay'] = response.hybrid_connection_config.relay
     data['hybridConnectionConfig']['hybridConnectionName'] = response.hybrid_connection_config.hybrid_connection_name
     data['hybridConnectionConfig']['token'] = response.hybrid_connection_config.token
     data['hybridConnectionConfig']['expirationTime'] = response.hybrid_connection_config.expiration_time
+    """
     return data
 
 
@@ -1818,7 +1822,7 @@ def client_side_proxy_main(cmd,
                            clientproxy_process=None):
     expiry, clientproxy_process = client_side_proxy(cmd, client, resource_group_name, cluster_name, 0, args, client_proxy_port, api_server_port, operating_system, creds, user_type, debug_mode, token=token, path=path, context_name=context_name, clientproxy_process=None)
     next_refresh_time = expiry - consts.CSP_REFRESH_TIME
-
+    """
     while(True):
         time.sleep(60)
         if(check_if_csp_is_running(clientproxy_process)):
@@ -1829,7 +1833,7 @@ def client_side_proxy_main(cmd,
             telemetry.set_exception(exception='Process closed externally.', fault_type=consts.Proxy_Closed_Externally_Fault_Type,
                                     summary='Process closed externally.')
             raise ManualInterrupt('Proxy closed externally.')
-
+    """
 
 def client_side_proxy(cmd,
                       client,
@@ -1859,7 +1863,7 @@ def client_side_proxy(cmd,
     try:
         list_prop = ListClusterUserCredentialProperties(
             authentication_method=auth_method,
-            client_proxy=True
+            client_proxy=False
         )
         response = client.list_cluster_user_credential(resource_group_name, cluster_name, list_prop)
     except Exception as e:
@@ -1869,7 +1873,7 @@ def client_side_proxy(cmd,
         raise CLIInternalError("Failed to get credentials." + str(e))
 
     # Starting the client proxy process, if this is the first time that this function is invoked
-    if flag == 0:
+    if flag == 1:
         try:
             if debug_mode:
                 clientproxy_process = Popen(args)
@@ -1896,12 +1900,15 @@ def client_side_proxy(cmd,
                                        'Unable to post refresh token details to clientproxy',
                                        "Failed to pass refresh token details to proxy.", clientproxy_process)
             sys.stderr = original_stderr
-
+    
+    expiry = 600
     data = prepare_clientproxy_data(response)
-    expiry = data['hybridConnectionConfig']['expirationTime']
-
     if token is not None:
         data['kubeconfigs'][0]['value'] = insert_token_in_kubeconfig(data, token)
+
+    """
+    expiry = data['hybridConnectionConfig']['expirationTime']
+
 
     uri = f'http://localhost:{client_proxy_port}/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.Kubernetes/connectedClusters/{cluster_name}/register?api-version=2020-10-01'
 
@@ -1909,8 +1916,9 @@ def client_side_proxy(cmd,
     response = make_api_call_with_retries(uri, data, False, consts.Post_Hybridconn_Fault_Type,
                                           'Unable to post hybrid connection details to clientproxy',
                                           "Failed to pass hybrid connection details to proxy.", clientproxy_process)
-
+    """
     if flag == 0:
+        """
         # Decoding kubeconfig into a string
         try:
             kubeconfig = json.loads(response.text)
@@ -1921,7 +1929,9 @@ def client_side_proxy(cmd,
 
         kubeconfig = kubeconfig['kubeconfigs'][0]['value']
         kubeconfig = b64decode(kubeconfig).decode("utf-8")
-
+        """
+        kubeconfig = data['kubeconfigs'][0]['value']
+        kubeconfig = b64decode(kubeconfig).decode("utf-8")
         try:
             print_or_merge_credentials(path, kubeconfig, True, context_name)
             if path != "-":
@@ -1932,8 +1942,7 @@ def client_side_proxy(cmd,
                     temp_context_name = context_name
                 print("Start sending kubectl requests on '{}' context using kubeconfig at {}".format(temp_context_name, path))
 
-            print("Press Ctrl+C to close proxy.")
-
+            print("Config file generation is successfull.")
         except Exception as e:
             telemetry.set_exception(exception=e, fault_type=consts.Merge_Kubeconfig_Fault_Type,
                                     summary='Unable to merge kubeconfig.')

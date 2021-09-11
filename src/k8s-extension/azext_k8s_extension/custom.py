@@ -140,10 +140,9 @@ def create_k8s_extension(cmd, client, resource_group_name, cluster_name, name, c
 
     # Create identity, if required
     # We don't create the identity if we are in DF
-    if create_identity and not is_dogfood_cluster(cmd):
-        identity_object, location = __create_identity(cmd, resource_group_name, cluster_name, cluster_type, cluster_rp)
-        if identity_object is not None and location is not None:
-            extension_instance.identity, extension_instance.location = identity_object, location
+    #if create_identity and not is_dogfood_cluster(cmd):
+    #    extension_instance.identity, extension_instance.location = \
+    #        __create_identity(cmd, resource_group_name, cluster_name, cluster_type, cluster_rp)
 
     # Try to create the resource
     return sdk_no_wait(no_wait, client.begin_create, resource_group_name,

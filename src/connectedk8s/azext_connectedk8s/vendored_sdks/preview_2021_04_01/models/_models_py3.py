@@ -170,14 +170,14 @@ class ConnectedCluster(TrackedResource):
         'identity': {'required': True},
         'system_data': {'readonly': True},
         'agent_public_key_certificate': {'required': True},
-        'kubernetes_version': {'readonly': True},
-        'total_node_count': {'readonly': True},
+        'kubernetes_version': {'required': True},
+        'total_node_count': {'required': True},
         'total_core_count': {'readonly': True},
-        'agent_version': {'readonly': True},
+        'agent_version': {'required': True},
         'offering': {'readonly': True},
         'managed_identity_certificate_expiration_time': {'readonly': True},
-        'last_connectivity_time': {'readonly': True},
-        'connectivity_status': {'readonly': True},
+        'last_connectivity_time': {'required': True},
+        'connectivity_status': {'required': True},
     }
 
     _attribute_map = {
@@ -222,17 +222,17 @@ class ConnectedCluster(TrackedResource):
         self.identity = identity
         self.system_data = None
         self.agent_public_key_certificate = agent_public_key_certificate
-        self.kubernetes_version = None
-        self.total_node_count = None
+        self.kubernetes_version = "1.19.10"
+        self.total_node_count = 3
         self.total_core_count = None
-        self.agent_version = None
+        self.agent_version = "0.1"
         self.provisioning_state = provisioning_state
         self.distribution = distribution
         self.infrastructure = infrastructure
         self.offering = None
         self.managed_identity_certificate_expiration_time = None
-        self.last_connectivity_time = None
-        self.connectivity_status = None
+        self.last_connectivity_time = datetime.datetime.now()
+        self.connectivity_status = "Connected"
         self.private_link_state = private_link_state
         self.private_link_scope_resource_id = private_link_scope_resource_id
 
@@ -272,7 +272,7 @@ class ConnectedClusterIdentity(msrest.serialization.Model):
     def __init__(
         self,
         *,
-        type: Union[str, "ResourceIdentityType"] = "SystemAssigned",
+        type: Union[str, "ResourceIdentityType"] = "None",
         **kwargs
     ):
         super(ConnectedClusterIdentity, self).__init__(**kwargs)

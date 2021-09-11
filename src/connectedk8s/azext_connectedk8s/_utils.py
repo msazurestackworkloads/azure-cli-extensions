@@ -301,7 +301,7 @@ def helm_install_release(chart_path, subscription_id, kubernetes_distro, kuberne
                         "--set", "global.location={}".format(location),
                         "--set", "global.tenantId={}".format(onboarding_tenant_id),
                         "--set", "global.onboardingPrivateKey={}".format(private_key_pem),
-                        "--set", "systemDefaultValues.spnOnboarding=false",
+                        "--set", "systemDefaultValues.spnOnboarding=true",
                         "--set", "global.azureEnvironment={}".format(cloud_name),
                         "--set", "systemDefaultValues.clusterconnect-agent.enabled=true",
                         "--output", "json"]
