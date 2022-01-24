@@ -378,7 +378,7 @@ class Identity(msrest.serialization.Model):
         'type': {'key': 'type', 'type': 'str'},
     }
 
-    type = "SystemAssigned"
+    type = "None"
 
     def __init__(
         self,
